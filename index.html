@@ -17,7 +17,7 @@
     }
 
     .gradient-text {
-      background: linear-gradient(90deg, #d7e3ff, #e4d9ff);
+      background: linear-gradient(90deg, #6b8cff, #a66bff); /* More vibrant gradient */
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -28,12 +28,13 @@
       border-radius: 1rem;
       overflow: hidden;
       position: relative;
-      background-color: #e4d9ff;
+      background-color: #f0e8ff; /* Slightly darker background for cards */
+      border: 1px solid #e0d6ff; /* Subtle border for better definition */
     }
 
     .character-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 20px 25px -5px rgba(107, 140, 255, 0.2); /* Gradient color in shadow */
     }
 
     .character-img {
@@ -45,11 +46,11 @@
     }
 
     .glow {
-      box-shadow: 0 0 15px rgba(183, 204, 255, 0.5);
+      box-shadow: 0 0 15px rgba(107, 140, 255, 0.3); /* Matching new gradient */
     }
 
     .glow:hover {
-      box-shadow: 0 0 25px rgba(183, 204, 255, 0.8);
+      box-shadow: 0 0 25px rgba(107, 140, 255, 0.4);
     }
 
     .floating {
@@ -67,10 +68,28 @@
       width: 100%;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
     }
+
+    /* New accent colors that match the vibrant gradient */
+    .bg-accent-blue {
+      background-color: #6b8cff;
+    }
+    .bg-accent-purple {
+      background-color: #a66bff;
+    }
+    .bg-accent-light {
+      background-color: #f0e8ff;
+    }
+    .border-accent {
+      border-color: #d0c0ff;
+    }
+    .text-accent {
+      color: #6b8cff;
+    }
   </style>
 </head>
 <body>
-  <nav class="fixed w-full z-50 bg-opacity-80 backdrop-blur-sm bg-white border-b border-[#d7e3ff]">
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-opacity-80 backdrop-blur-sm bg-white border-b border-[#d0c0ff]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center">
@@ -78,15 +97,15 @@
         </div>
         <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-4 text-[#3a3a3a]">
-            <a href="#home" class="hover:text-[#7f8ea3]">Home</a>
-            <a href="#about" class="hover:text-[#7f8ea3]">About</a>
-            <a href="#agents" class="hover:text-[#7f8ea3]">Hero Agents</a>
-            <a href="#how-it-works" class="hover:text-[#7f8ea3]">How It Works</a>
-            <a href="#contact" class="hover:text-[#7f8ea3]">Contact</a>
+            <a href="#home" class="hover:text-[#6b8cff]">Home</a>
+            <a href="#about" class="hover:text-[#6b8cff]">About</a>
+            <a href="#agents" class="hover:text-[#6b8cff]">Hero Agents</a>
+            <a href="#how-it-works" class="hover:text-[#6b8cff]">How It Works</a>
+            <a href="#contact" class="hover:text-[#6b8cff]">Contact</a>
           </div>
         </div>
         <div class="md:hidden">
-          <button class="text-[#3a3a3a] hover:text-[#7f8ea3] focus:outline-none">
+          <button class="text-[#3a3a3a] hover:text-[#6b8cff] focus:outline-none">
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
@@ -96,16 +115,17 @@
     </div>
   </nav>
 
+  <!-- Hero Section -->
   <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <div class="flex flex-col md:flex-row items-center">
       <div class="md:w-1/2 mb-10 md:mb-0">
         <h1 class="text-4xl md:text-6xl font-bold mb-6">Your Digital <span class="gradient-text">Hero Agents</span></h1>
         <p class="text-xl mb-8">Futuristic assistants that handle your digital routines. Welcome to effortless productivity.</p>
         <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-          <a href="#agents" class="px-8 py-4 bg-[#d7e3ff] text-[#3a3a3a] font-bold rounded-lg hover:opacity-90 transition glow flex items-center justify-center">
+          <a href="#agents" class="px-8 py-4 bg-gradient-to-r from-[#6b8cff] to-[#a66bff] text-white font-bold rounded-lg hover:opacity-90 transition glow flex items-center justify-center">
             Meet the Agents <i class="fas fa-arrow-down ml-2"></i>
           </a>
-          <a href="#contact" class="px-8 py-4 border border-[#b4d4ff] rounded-lg text-[#3a3a3a] font-bold hover:bg-[#b4d4ff] transition flex items-center justify-center">
+          <a href="#contact" class="px-8 py-4 border border-[#6b8cff] rounded-lg text-[#3a3a3a] font-bold hover:bg-[#f0e8ff] transition flex items-center justify-center">
             Get Started <i class="fas fa-rocket ml-2"></i>
           </a>
         </div>
@@ -116,28 +136,29 @@
     </div>
   </section>
 
+  <!-- About Section -->
   <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-5xl font-bold mb-6">Why Choose <span class="gradient-text">Neonys</span>?</h2>
       <p class="text-xl max-w-3xl mx-auto">Neonys Hero Agents free your mind and schedule, handling the digital noise so you can focus on what truly matters.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-[#b4d4ff] p-8 rounded-xl">
-        <div class="text-[#3a3a3a] text-4xl mb-4">
+      <div class="bg-[#f0e8ff] p-8 rounded-xl border border-[#d0c0ff]">
+        <div class="text-[#6b8cff] text-4xl mb-4">
           <i class="fas fa-magic"></i>
         </div>
         <h3 class="text-xl font-bold mb-3">Effortless</h3>
         <p>Each Hero Agent performs complex tasks seamlessly in the background. Set it, forget it.</p>
       </div>
-      <div class="bg-[#e4d9ff] p-8 rounded-xl">
-        <div class="text-[#3a3a3a] text-4xl mb-4">
+      <div class="bg-[#f0e8ff] p-8 rounded-xl border border-[#d0c0ff]">
+        <div class="text-[#a66bff] text-4xl mb-4">
           <i class="fas fa-brain"></i>
         </div>
         <h3 class="text-xl font-bold mb-3">Smart</h3>
         <p>Designed with adaptive logic, your Hero Agents learn and optimize over time.</p>
       </div>
-      <div class="bg-[#d7e3ff] p-8 rounded-xl">
-        <div class="text-[#3a3a3a] text-4xl mb-4">
+      <div class="bg-[#f0e8ff] p-8 rounded-xl border border-[#d0c0ff]">
+        <div class="text-[#6b8cff] text-4xl mb-4">
           <i class="fas fa-user-shield"></i>
         </div>
         <h3 class="text-xl font-bold mb-3">Secure</h3>
@@ -145,37 +166,38 @@
       </div>
     </div>
     
-    <div class="mt-16 bg-gradient-to-r from-[#d7e3ff] to-[#e4d9ff] rounded-xl p-8 md:p-12 border border-[#b4d4ff]">
-      <h3 class="text-2xl md:text-3xl font-bold mb-6">Why Hero Agents?</h3>
-      <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-[#3a3a3a]">
+    <div class="mt-16 bg-gradient-to-r from-[#6b8cff] to-[#a66bff] rounded-xl p-8 md:p-12">
+      <h3 class="text-2xl md:text-3xl font-bold mb-6 text-white">Why Hero Agents?</h3>
+      <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-white">
         <li class="flex items-start">
-          <i class="fas fa-check-circle text-[#3a3a3a] mt-1 mr-3"></i>
+          <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
           <span>Specialized in specific digital tasks</span>
         </li>
         <li class="flex items-start">
-          <i class="fas fa-check-circle text-[#3a3a3a] mt-1 mr-3"></i>
+          <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
           <span>24/7 operation without fatigue</span>
         </li>
         <li class="flex items-start">
-          <i class="fas fa-check-circle text-[#3a3a3a] mt-1 mr-3"></i>
+          <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
           <span>Integrates with all your favorite apps</span>
         </li>
         <li class="flex items-start">
-          <i class="fas fa-check-circle text-[#3a3a3a] mt-1 mr-3"></i>
+          <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
           <span>Visual interface makes monitoring easy</span>
         </li>
         <li class="flex items-start">
-          <i class="fas fa-check-circle text-[#3a3a3a] mt-1 mr-3"></i>
+          <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
           <span>Smart error handling and recovery</span>
         </li>
         <li class="flex items-start">
-          <i class="fas fa-check-circle text-[#3a3a3a] mt-1 mr-3"></i>
+          <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
           <span>Cost-effective compared to human assistants</span>
         </li>
       </ul>
     </div>
   </section>
 
+  <!-- Agents Section -->
   <section id="agents" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-5xl font-bold mb-6">Meet Your <span class="gradient-text">Hero Agents</span></h2>
@@ -187,12 +209,12 @@
       <div class="character-card p-6">
         <div class="relative z-10">
           <div class="flex items-center mb-4">
-            <div class="w-16 h-16 rounded-full bg-[#b4d4ff] flex items-center justify-center mr-4">
+            <div class="w-16 h-16 rounded-full bg-[#6b8cff] flex items-center justify-center mr-4">
               <i class="fas fa-envelope text-white text-2xl"></i>
             </div>
             <div>
               <h3 class="text-xl font-bold">Inboxa</h3>
-              <p class="text-[#3a3a3a]">Email Organizer Agent</p>
+              <p class="text-[#6b8cff]">Email Organizer Agent</p>
             </div>
           </div>
           <div class="mb-6">
@@ -201,8 +223,8 @@
           <h4 class="text-lg font-semibold mb-2">Inbox Zeroer</h4>
           <p class="mb-4">Sorts all your incoming emails, moves attachments to cloud storage, filters spam, and sends notifications only for important messages.</p>
           <div class="flex justify-between items-center">
-            <span class="text-sm text-[#7f8ea3]">Gmail → Filter → Categorize → Notify</span>
-            <button class="px-4 py-2 bg-[#b4d4ff] hover:bg-[#a3c4f0] rounded text-[#3a3a3a] font-medium transition">
+            <span class="text-sm text-[#6b8cff]">Gmail → Filter → Categorize → Notify</span>
+            <button class="px-4 py-2 bg-[#6b8cff] hover:bg-[#5a7bef] rounded text-white font-medium transition">
               Get this Agent
             </button>
           </div>
@@ -213,12 +235,12 @@
       <div class="character-card p-6">
         <div class="relative z-10">
           <div class="flex items-center mb-4">
-            <div class="w-16 h-16 rounded-full bg-[#e4d9ff] flex items-center justify-center mr-4">
+            <div class="w-16 h-16 rounded-full bg-[#a66bff] flex items-center justify-center mr-4">
               <i class="fas fa-bullseye text-white text-2xl"></i>
             </div>
             <div>
               <h3 class="text-xl font-bold">Leado</h3>
-              <p class="text-[#3a3a3a]">Lead Capture Agent</p>
+              <p class="text-[#a66bff]">Lead Capture Agent</p>
             </div>
           </div>
           <div class="mb-6">
@@ -227,8 +249,8 @@
           <h4 class="text-lg font-semibold mb-2">Lead Magnet</h4>
           <p class="mb-4">Automatically captures leads from Typeform, enriches them with additional data, and sends them to Notion & Slack with priority tagging.</p>
           <div class="flex justify-between items-center">
-            <span class="text-sm text-[#7f8ea3]">Typeform → Notion DB → Slack alert</span>
-            <button class="px-4 py-2 bg-[#e4d9ff] hover:bg-[#d3c8ef] rounded text-[#3a3a3a] font-medium transition">
+            <span class="text-sm text-[#a66bff]">Typeform → Notion DB → Slack alert</span>
+            <button class="px-4 py-2 bg-[#a66bff] hover:bg-[#955af0] rounded text-white font-medium transition">
               Get this Agent
             </button>
           </div>
@@ -239,12 +261,12 @@
       <div class="character-card p-6">
         <div class="relative z-10">
           <div class="flex items-center mb-4">
-            <div class="w-16 h-16 rounded-full bg-[#d7e3ff] flex items-center justify-center mr-4">
+            <div class="w-16 h-16 rounded-full bg-[#6b8cff] flex items-center justify-center mr-4">
               <i class="fas fa-file-invoice-dollar text-white text-2xl"></i>
             </div>
             <div>
               <h3 class="text-xl font-bold">Clientron</h3>
-              <p class="text-[#3a3a3a]">Billing Automation Unit</p>
+              <p class="text-[#6b8cff]">Billing Automation Unit</p>
             </div>
           </div>
           <div class="mb-6">
@@ -253,8 +275,8 @@
           <h4 class="text-lg font-semibold mb-2">Auto-Invoicer</h4>
           <p class="mb-4">Generates professional invoices when deals close in your CRM, sends them to clients, and follows up on unpaid invoices automatically.</p>
           <div class="flex justify-between items-center">
-            <span class="text-sm text-[#7f8ea3]">Pipedrive → Invoice Ninja → Email</span>
-            <button class="px-4 py-2 bg-[#d7e3ff] hover:bg-[#c6d2ef] rounded text-[#3a3a3a] font-medium transition">
+            <span class="text-sm text-[#6b8cff]">Pipedrive → Invoice Ninja → Email</span>
+            <button class="px-4 py-2 bg-[#6b8cff] hover:bg-[#5a7bef] rounded text-white font-medium transition">
               Get this Agent
             </button>
           </div>
@@ -265,12 +287,12 @@
       <div class="character-card p-6">
         <div class="relative z-10">
           <div class="flex items-center mb-4">
-            <div class="w-16 h-16 rounded-full bg-[#b4d4ff] flex items-center justify-center mr-4">
+            <div class="w-16 h-16 rounded-full bg-[#a66bff] flex items-center justify-center mr-4">
               <i class="fas fa-share-alt text-white text-2xl"></i>
             </div>
             <div>
               <h3 class="text-xl font-bold">Postari</h3>
-              <p class="text-[#3a3a3a]">Social Media Publisher</p>
+              <p class="text-[#a66bff]">Social Media Publisher</p>
             </div>
           </div>
           <div class="mb-6">
@@ -279,8 +301,8 @@
           <h4 class="text-lg font-semibold mb-2">Social Scheduler</h4>
           <p class="mb-4">Publishes social media posts from your Notion content calendar to all platforms with optimal timing and automatic hashtag generation.</p>
           <div class="flex justify-between items-center">
-            <span class="text-sm text-[#7f8ea3]">Notion → Buffer → LinkedIn, Twitter</span>
-            <button class="px-4 py-2 bg-[#b4d4ff] hover:bg-[#a3c4f0] rounded text-[#3a3a3a] font-medium transition">
+            <span class="text-sm text-[#a66bff]">Notion → Buffer → LinkedIn, Twitter</span>
+            <button class="px-4 py-2 bg-[#a66bff] hover:bg-[#955af0] rounded text-white font-medium transition">
               Get this Agent
             </button>
           </div>
@@ -290,7 +312,7 @@
     
     <div class="mt-12 text-center">
       <p class="mb-6">Don't see exactly what you need? We build custom Hero Agents too!</p>
-      <a href="#contact" class="inline-block px-8 py-3 bg-[#d7e3ff] text-[#3a3a3a] font-bold rounded-lg hover:opacity-90 transition">
+      <a href="#contact" class="inline-block px-8 py-3 bg-gradient-to-r from-[#6b8cff] to-[#a66bff] rounded-lg text-white font-bold hover:opacity-90 transition">
         Request Custom Agent <i class="fas fa-magic ml-2"></i>
       </a>
     </div>
@@ -304,12 +326,12 @@
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-      <div class="bg-[#e4d9ff] p-8 rounded-xl relative">
-        <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#b4d4ff] rounded-full flex items-center justify-center">
-          <span class="text-[#3a3a3a] font-bold">1</span>
+      <div class="bg-[#f0e8ff] p-8 rounded-xl border border-[#d0c0ff] relative">
+        <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#6b8cff] rounded-full flex items-center justify-center">
+          <span class="text-white font-bold">1</span>
         </div>
         <div class="text-center mt-6">
-          <div class="text-[#3a3a3a] text-4xl mb-4">
+          <div class="text-[#6b8cff] text-4xl mb-4">
             <i class="fas fa-calendar-check"></i>
           </div>
           <h3 class="text-xl font-bold mb-3">Book a Call</h3>
@@ -317,12 +339,12 @@
         </div>
       </div>
       
-      <div class="bg-[#d7e3ff] p-8 rounded-xl relative">
-        <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#e4d9ff] rounded-full flex items-center justify-center">
-          <span class="text-[#3a3a3a] font-bold">2</span>
+      <div class="bg-[#f0e8ff] p-8 rounded-xl border border-[#d0c0ff] relative">
+        <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#a66bff] rounded-full flex items-center justify-center">
+          <span class="text-white font-bold">2</span>
         </div>
         <div class="text-center mt-6">
-          <div class="text-[#3a3a3a] text-4xl mb-4">
+          <div class="text-[#a66bff] text-4xl mb-4">
             <i class="fas fa-project-diagram"></i>
           </div>
           <h3 class="text-xl font-bold mb-3">We Design</h3>
@@ -330,12 +352,12 @@
         </div>
       </div>
       
-      <div class="bg-[#b4d4ff] p-8 rounded-xl relative">
-        <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#d7e3ff] rounded-full flex items-center justify-center">
-          <span class="text-[#3a3a3a] font-bold">3</span>
+      <div class="bg-[#f0e8ff] p-8 rounded-xl border border-[#d0c0ff] relative">
+        <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#6b8cff] rounded-full flex items-center justify-center">
+          <span class="text-white font-bold">3</span>
         </div>
         <div class="text-center mt-6">
-          <div class="text-[#3a3a3a] text-4xl mb-4">
+          <div class="text-[#6b8cff] text-4xl mb-4">
             <i class="fas fa-clock"></i>
           </div>
           <h3 class="text-xl font-bold mb-3">You Save Time</h3>
@@ -344,29 +366,29 @@
       </div>
     </div>
     
-    <div class="bg-[#e4d9ff] rounded-xl p-8 md:p-12">
+    <div class="bg-[#f0e8ff] rounded-xl p-8 md:p-12 border border-[#d0c0ff]">
       <div class="flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 mb-8 md:mb-0">
           <img src="https://illustrations.popsy.co/amber/time-management.svg" alt="Time Savings" class="w-full max-w-md mx-auto">
         </div>
         <div class="md:w-1/2 md:pl-8">
           <h3 class="text-2xl md:text-3xl font-bold mb-6">What Our Clients Say</h3>
-          <div class="mb-6 p-4 bg-white rounded-lg">
+          <div class="mb-6 p-4 bg-white rounded-lg border border-[#d0c0ff]">
             <div class="flex items-center mb-2">
-              <div class="w-10 h-10 rounded-full bg-[#b4d4ff] flex items-center justify-center text-[#3a3a3a] font-bold mr-3">JS</div>
+              <div class="w-10 h-10 rounded-full bg-[#6b8cff] flex items-center justify-center text-white font-bold mr-3">JS</div>
               <div>
                 <h4 class="font-bold">Jamie S.</h4>
-                <p class="text-sm text-[#7f8ea3]">Marketing Director</p>
+                <p class="text-sm text-[#6b8cff]">Marketing Director</p>
               </div>
             </div>
             <p>"The social media automation has saved me 10+ hours per week. Now I can focus on strategy instead of posting."</p>
           </div>
-          <div class="p-4 bg-white rounded-lg">
+          <div class="p-4 bg-white rounded-lg border border-[#d0c0ff]">
             <div class="flex items-center mb-2">
-              <div class="w-10 h-10 rounded-full bg-[#d7e3ff] flex items-center justify-center text-[#3a3a3a] font-bold mr-3">AM</div>
+              <div class="w-10 h-10 rounded-full bg-[#a66bff] flex items-center justify-center text-white font-bold mr-3">AM</div>
               <div>
                 <h4 class="font-bold">Alex M.</h4>
-                <p class="text-sm text-[#7f8ea3]">Small Business Owner</p>
+                <p class="text-sm text-[#a66bff]">Small Business Owner</p>
               </div>
             </div>
             <p>"Clientron handles all my invoicing automatically. No more chasing payments or manual data entry!"</p>
@@ -378,22 +400,22 @@
 
   <!-- CTA & Contact -->
   <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-    <div class="bg-gradient-to-r from-[#d7e3ff] to-[#e4d9ff] rounded-xl p-8 md:p-12">
+    <div class="bg-gradient-to-r from-[#6b8cff] to-[#a66bff] rounded-xl p-8 md:p-12">
       <div class="flex flex-col md:flex-row">
         <div class="md:w-1/2 mb-8 md:mb-0">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to <span class="gradient-text">Automate</span>?</h2>
-          <p class="text-xl mb-6">Let's discuss how we can save you time and streamline your workflows.</p>
-          <div class="flex flex-col space-y-4 text-[#3a3a3a]">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to <span class="gradient-text">Automate</span>?</h2>
+          <p class="text-xl mb-6 text-white">Let's discuss how we can save you time and streamline your workflows.</p>
+          <div class="flex flex-col space-y-4 text-white">
             <div class="flex items-center">
-              <i class="fas fa-envelope text-[#3a3a3a] mr-4 text-xl"></i>
+              <i class="fas fa-envelope text-white mr-4 text-xl"></i>
               <span>hello@neonys.io</span>
             </div>
             <div class="flex items-center">
-              <i class="fas fa-phone-alt text-[#3a3a3a] mr-4 text-xl"></i>
+              <i class="fas fa-phone-alt text-white mr-4 text-xl"></i>
               <span>+1 (555) 123-4567</span>
             </div>
             <div class="flex items-center">
-              <i class="fas fa-map-marker-alt text-[#3a3a3a] mr-4 text-xl"></i>
+              <i class="fas fa-map-marker-alt text-white mr-4 text-xl"></i>
               <span>San Francisco, CA</span>
             </div>
           </div>
@@ -401,18 +423,18 @@
         <div class="md:w-1/2 md:pl-8">
           <form class="space-y-4">
             <div>
-              <label for="name" class="block text-sm font-medium mb-1">Name</label>
-              <input type="text" id="name" class="w-full px-4 py-3 bg-white border border-[#d7e3ff] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b4d4ff]">
+              <label for="name" class="block text-sm font-medium mb-1 text-white">Name</label>
+              <input type="text" id="name" class="w-full px-4 py-3 bg-white/90 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a66bff]">
             </div>
             <div>
-              <label for="email" class="block text-sm font-medium mb-1">Email</label>
-              <input type="email" id="email" class="w-full px-4 py-3 bg-white border border-[#d7e3ff] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b4d4ff]">
+              <label for="email" class="block text-sm font-medium mb-1 text-white">Email</label>
+              <input type="email" id="email" class="w-full px-4 py-3 bg-white/90 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a66bff]">
             </div>
             <div>
-              <label for="message" class="block text-sm font-medium mb-1">What would you like to automate?</label>
-              <textarea id="message" rows="4" class="w-full px-4 py-3 bg-white border border-[#d7e3ff] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b4d4ff]"></textarea>
+              <label for="message" class="block text-sm font-medium mb-1 text-white">What would you like to automate?</label>
+              <textarea id="message" rows="4" class="w-full px-4 py-3 bg-white/90 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a66bff]"></textarea>
             </div>
-            <button type="submit" class="w-full px-6 py-3 bg-[#d7e3ff] hover:bg-[#c6d2ef] rounded-lg text-[#3a3a3a] font-bold transition">
+            <button type="submit" class="w-full px-6 py-3 bg-white hover:bg-white/90 rounded-lg text-[#6b8cff] font-bold transition">
               Send Message <i class="fas fa-paper-plane ml-2"></i>
             </button>
           </form>
@@ -422,31 +444,31 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-[#d7e3ff]">
+  <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-[#d0c0ff]">
     <div class="max-w-7xl mx-auto">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="mb-6 md:mb-0">
           <span class="text-2xl font-bold gradient-text">Neonys</span>
-          <p class="text-[#7f8ea3] mt-2">Hero Agents for the future.</p>
+          <p class="text-[#6b8cff] mt-2">Hero Agents for the future.</p>
         </div>
         <div class="flex space-x-6">
-          <a href="#" class="text-[#7f8ea3] hover:text-[#3a3a3a] transition">
+          <a href="#" class="text-[#6b8cff] hover:text-[#a66bff] transition">
             <i class="fab fa-twitter text-xl"></i>
           </a>
-          <a href="#" class="text-[#7f8ea3] hover:text-[#3a3a3a] transition">
+          <a href="#" class="text-[#6b8cff] hover:text-[#a66bff] transition">
             <i class="fab fa-linkedin text-xl"></i>
           </a>
-          <a href="#" class="text-[#7f8ea3] hover:text-[#3a3a3a] transition">
+          <a href="#" class="text-[#6b8cff] hover:text-[#a66bff] transition">
             <i class="fab fa-github text-xl"></i>
           </a>
         </div>
       </div>
-      <div class="mt-8 pt-8 border-t border-[#d7e3ff] flex flex-col md:flex-row justify-between items-center">
-        <p class="text-[#7f8ea3] text-sm mb-4 md:mb-0">© 2023 Neonys. All rights reserved.</p>
+      <div class="mt-8 pt-8 border-t border-[#d0c0ff] flex flex-col md:flex-row justify-between items-center">
+        <p class="text-[#6b8cff] text-sm mb-4 md:mb-0">© 2023 Neonys. All rights reserved.</p>
         <div class="flex space-x-6">
-          <a href="#" class="text-[#7f8ea3] hover:text-[#3a3a3a] text-sm transition">Privacy Policy</a>
-          <a href="#" class="text-[#7f8ea3] hover:text-[#3a3a3a] text-sm transition">Terms of Service</a>
-          <a href="#" class="text-[#7f8ea3] hover:text-[#3a3a3a] text-sm transition">Contact Us</a>
+          <a href="#" class="text-[#6b8cff] hover:text-[#a66bff] text-sm transition">Privacy Policy</a>
+          <a href="#" class="text-[#6b8cff] hover:text-[#a66bff] text-sm transition">Terms of Service</a>
+          <a href="#" class="text-[#6b8cff] hover:text-[#a66bff] text-sm transition">Contact Us</a>
         </div>
       </div>
     </div>
