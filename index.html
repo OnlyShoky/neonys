@@ -17,7 +17,7 @@
     }
 
     .gradient-text {
-      background: linear-gradient(90deg, #6b8cff, #a66bff); /* More vibrant gradient */
+      background: linear-gradient(90deg, #6b8cff, #a66bff);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -28,13 +28,13 @@
       border-radius: 1rem;
       overflow: hidden;
       position: relative;
-      background-color: #f0e8ff; /* Slightly darker background for cards */
-      border: 1px solid #e0d6ff; /* Subtle border for better definition */
+      background-color: #f0e8ff;
+      border: 1px solid #e0d6ff;
     }
 
     .character-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 20px 25px -5px rgba(107, 140, 255, 0.2); /* Gradient color in shadow */
+      box-shadow: 0 20px 25px -5px rgba(107, 140, 255, 0.2);
     }
 
     .character-img {
@@ -46,7 +46,7 @@
     }
 
     .glow {
-      box-shadow: 0 0 15px rgba(107, 140, 255, 0.3); /* Matching new gradient */
+      box-shadow: 0 0 15px rgba(107, 140, 255, 0.3);
     }
 
     .glow:hover {
@@ -69,21 +69,42 @@
       background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
     }
 
-    /* New accent colors that match the vibrant gradient */
-    .bg-accent-blue {
-      background-color: #6b8cff;
+    .language-selector {
+      position: relative;
+      display: inline-block;
     }
-    .bg-accent-purple {
-      background-color: #a66bff;
+    
+    .language-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: white;
+      min-width: 120px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+      z-index: 1;
+      border-radius: 0.5rem;
+      border: 1px solid #e0d6ff;
     }
-    .bg-accent-light {
+    
+    .language-selector:hover .language-dropdown {
+      display: block;
+    }
+    
+    .language-option {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    
+    .language-option:hover {
       background-color: #f0e8ff;
     }
-    .border-accent {
-      border-color: #d0c0ff;
-    }
-    .text-accent {
-      color: #6b8cff;
+    
+    .language-flag {
+      width: 20px;
+      height: 15px;
+      margin-right: 8px;
     }
   </style>
 </head>
@@ -95,13 +116,34 @@
         <div class="flex items-center">
           <span class="text-2xl font-bold gradient-text">Neonys</span>
         </div>
-        <div class="hidden md:block">
-          <div class="ml-10 flex items-baseline space-x-4 text-[#3a3a3a]">
-            <a href="#home" class="hover:text-[#6b8cff]">Home</a>
-            <a href="#about" class="hover:text-[#6b8cff]">About</a>
-            <a href="#agents" class="hover:text-[#6b8cff]">Hero Agents</a>
-            <a href="#how-it-works" class="hover:text-[#6b8cff]">How It Works</a>
-            <a href="#contact" class="hover:text-[#6b8cff]">Contact</a>
+        <div class="hidden md:flex items-center space-x-4">
+          <div class="flex items-baseline space-x-4 text-[#3a3a3a]">
+            <a href="#home" class="hover:text-[#6b8cff] nav-link" data-key="nav.home">Home</a>
+            <a href="#about" class="hover:text-[#6b8cff] nav-link" data-key="nav.about">About</a>
+            <a href="#agents" class="hover:text-[#6b8cff] nav-link" data-key="nav.agents">Hero Agents</a>
+            <a href="#how-it-works" class="hover:text-[#6b8cff] nav-link" data-key="nav.howItWorks">How It Works</a>
+            <a href="#contact" class="hover:text-[#6b8cff] nav-link" data-key="nav.contact">Contact</a>
+          </div>
+          <div class="language-selector ml-6">
+            <button class="flex items-center text-[#3a3a3a] hover:text-[#6b8cff]">
+              <img src="https://flagcdn.com/w20/gb.png" class="language-flag" id="current-flag">
+              <span id="current-language">EN</span>
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="language-dropdown">
+              <div class="language-option" onclick="changeLanguage('en')">
+                <img src="https://flagcdn.com/w20/gb.png" class="language-flag">
+                <span>English</span>
+              </div>
+              <div class="language-option" onclick="changeLanguage('es')">
+                <img src="https://flagcdn.com/w20/es.png" class="language-flag">
+                <span>Español</span>
+              </div>
+              <div class="language-option" onclick="changeLanguage('fr')">
+                <img src="https://flagcdn.com/w20/fr.png" class="language-flag">
+                <span>Français</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="md:hidden">
@@ -119,14 +161,14 @@
   <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <div class="flex flex-col md:flex-row items-center">
       <div class="md:w-1/2 mb-10 md:mb-0">
-        <h1 class="text-4xl md:text-6xl font-bold mb-6">Your Digital <span class="gradient-text">Hero Agents</span></h1>
-        <p class="text-xl mb-8">Futuristic assistants that handle your digital routines. Welcome to effortless productivity.</p>
+        <h1 class="text-4xl md:text-6xl font-bold mb-6"><span class="translate" data-key="hero.title1">Your Digital</span> <span class="gradient-text translate" data-key="hero.title2">Hero Agents</span></h1>
+        <p class="text-xl mb-8 translate" data-key="hero.subtitle">Futuristic assistants that handle your digital routines. Welcome to effortless productivity.</p>
         <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
           <a href="#agents" class="px-8 py-4 bg-gradient-to-r from-[#6b8cff] to-[#a66bff] text-white font-bold rounded-lg hover:opacity-90 transition glow flex items-center justify-center">
-            Meet the Agents <i class="fas fa-arrow-down ml-2"></i>
+            <span class="translate" data-key="hero.cta1">Meet the Agents</span> <i class="fas fa-arrow-down ml-2"></i>
           </a>
           <a href="#contact" class="px-8 py-4 border border-[#6b8cff] rounded-lg text-[#3a3a3a] font-bold hover:bg-[#f0e8ff] transition flex items-center justify-center">
-            Get Started <i class="fas fa-rocket ml-2"></i>
+            <span class="translate" data-key="hero.cta2">Get Started</span> <i class="fas fa-rocket ml-2"></i>
           </a>
         </div>
       </div>
@@ -139,57 +181,57 @@
   <!-- About Section -->
   <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-5xl font-bold mb-6">Why Choose <span class="gradient-text">Neonys</span>?</h2>
-      <p class="text-xl max-w-3xl mx-auto">Neonys Hero Agents free your mind and schedule, handling the digital noise so you can focus on what truly matters.</p>
+      <h2 class="text-3xl md:text-5xl font-bold mb-6"><span class="translate" data-key="about.title1">Why Choose</span> <span class="gradient-text translate" data-key="about.title2">Neonys</span>?</h2>
+      <p class="text-xl max-w-3xl mx-auto translate" data-key="about.subtitle">Neonys Hero Agents free your mind and schedule, handling the digital noise so you can focus on what truly matters.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="bg-[#f0e8ff] p-8 rounded-xl border border-[#d0c0ff]">
         <div class="text-[#6b8cff] text-4xl mb-4">
           <i class="fas fa-magic"></i>
         </div>
-        <h3 class="text-xl font-bold mb-3">Effortless</h3>
-        <p>Each Hero Agent performs complex tasks seamlessly in the background. Set it, forget it.</p>
+        <h3 class="text-xl font-bold mb-3 translate" data-key="about.feature1.title">Effortless</h3>
+        <p class="translate" data-key="about.feature1.desc">Each Hero Agent performs complex tasks seamlessly in the background. Set it, forget it.</p>
       </div>
       <div class="bg-[#f0e8ff] p-8 rounded-xl border border-[#d0c0ff]">
         <div class="text-[#a66bff] text-4xl mb-4">
           <i class="fas fa-brain"></i>
         </div>
-        <h3 class="text-xl font-bold mb-3">Smart</h3>
-        <p>Designed with adaptive logic, your Hero Agents learn and optimize over time.</p>
+        <h3 class="text-xl font-bold mb-3 translate" data-key="about.feature2.title">Smart</h3>
+        <p class="translate" data-key="about.feature2.desc">Designed with adaptive logic, your Hero Agents learn and optimize over time.</p>
       </div>
       <div class="bg-[#f0e8ff] p-8 rounded-xl border border-[#d0c0ff]">
         <div class="text-[#6b8cff] text-4xl mb-4">
           <i class="fas fa-user-shield"></i>
         </div>
-        <h3 class="text-xl font-bold mb-3">Secure</h3>
-        <p>Neonys operates behind the scenes with privacy-first protocols and robust security.</p>
+        <h3 class="text-xl font-bold mb-3 translate" data-key="about.feature3.title">Secure</h3>
+        <p class="translate" data-key="about.feature3.desc">Neonys operates behind the scenes with privacy-first protocols and robust security.</p>
       </div>
     </div>
     
     <div class="mt-16 bg-gradient-to-r from-[#6b8cff] to-[#a66bff] rounded-xl p-8 md:p-12">
-      <h3 class="text-2xl md:text-3xl font-bold mb-6 text-white">Why Hero Agents?</h3>
+      <h3 class="text-2xl md:text-3xl font-bold mb-6 text-white translate" data-key="about.whyTitle">Why Hero Agents?</h3>
       <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-white">
-        <li class="flex items-start">
+        <li class="flex items-start translate" data-key="about.benefit1">
           <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
           <span>Specialized in specific digital tasks</span>
         </li>
-        <li class="flex items-start">
+        <li class="flex items-start translate" data-key="about.benefit2">
           <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
           <span>24/7 operation without fatigue</span>
         </li>
-        <li class="flex items-start">
+        <li class="flex items-start translate" data-key="about.benefit3">
           <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
           <span>Integrates with all your favorite apps</span>
         </li>
-        <li class="flex items-start">
+        <li class="flex items-start translate" data-key="about.benefit4">
           <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
           <span>Visual interface makes monitoring easy</span>
         </li>
-        <li class="flex items-start">
+        <li class="flex items-start translate" data-key="about.benefit5">
           <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
           <span>Smart error handling and recovery</span>
         </li>
-        <li class="flex items-start">
+        <li class="flex items-start translate" data-key="about.benefit6">
           <i class="fas fa-check-circle text-white mt-1 mr-3"></i>
           <span>Cost-effective compared to human assistants</span>
         </li>
@@ -200,8 +242,8 @@
   <!-- Agents Section -->
   <section id="agents" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-5xl font-bold mb-6">Meet Your <span class="gradient-text">Hero Agents</span></h2>
-      <p class="text-xl max-w-3xl mx-auto">Each Hero Agent specializes in a domain of your digital life — from inboxes to insights.</p>
+      <h2 class="text-3xl md:text-5xl font-bold mb-6"><span class="translate" data-key="agents.title1">Meet Your</span> <span class="gradient-text translate" data-key="agents.title2">Hero Agents</span></h2>
+      <p class="text-xl max-w-3xl mx-auto translate" data-key="agents.subtitle">Each Hero Agent specializes in a domain of your digital life — from inboxes to insights.</p>
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -214,18 +256,18 @@
             </div>
             <div>
               <h3 class="text-xl font-bold">Inboxa</h3>
-              <p class="text-[#6b8cff]">Email Organizer Agent</p>
+              <p class="text-[#6b8cff] translate" data-key="agents.inboxa.title">Email Organizer Agent</p>
             </div>
           </div>
           <div class="mb-6">
             <img src="https://illustrations.popsy.co/amber/digital-nomad.svg" alt="Inboxa" class="w-full h-48 object-contain character-img">
           </div>
-          <h4 class="text-lg font-semibold mb-2">Inbox Zeroer</h4>
-          <p class="mb-4">Sorts all your incoming emails, moves attachments to cloud storage, filters spam, and sends notifications only for important messages.</p>
+          <h4 class="text-lg font-semibold mb-2 translate" data-key="agents.inboxa.subtitle">Inbox Zeroer</h4>
+          <p class="mb-4 translate" data-key="agents.inboxa.desc">Sorts all your incoming emails, moves attachments to cloud storage, filters spam, and sends notifications only for important messages.</p>
           <div class="flex justify-between items-center">
             <span class="text-sm text-[#6b8cff]">Gmail → Filter → Categorize → Notify</span>
             <button class="px-4 py-2 bg-[#6b8cff] hover:bg-[#5a7bef] rounded text-white font-medium transition">
-              Get this Agent
+              <span class="translate" data-key="agents.cta">Get this Agent</span>
             </button>
           </div>
         </div>
@@ -240,18 +282,18 @@
             </div>
             <div>
               <h3 class="text-xl font-bold">Leado</h3>
-              <p class="text-[#a66bff]">Lead Capture Agent</p>
+              <p class="text-[#a66bff] translate" data-key="agents.leado.title">Lead Capture Agent</p>
             </div>
           </div>
           <div class="mb-6">
             <img src="https://illustrations.popsy.co/amber/customer-survey.svg" alt="Leado" class="w-full h-48 object-contain character-img">
           </div>
-          <h4 class="text-lg font-semibold mb-2">Lead Magnet</h4>
-          <p class="mb-4">Automatically captures leads from Typeform, enriches them with additional data, and sends them to Notion & Slack with priority tagging.</p>
+          <h4 class="text-lg font-semibold mb-2 translate" data-key="agents.leado.subtitle">Lead Magnet</h4>
+          <p class="mb-4 translate" data-key="agents.leado.desc">Automatically captures leads from Typeform, enriches them with additional data, and sends them to Notion & Slack with priority tagging.</p>
           <div class="flex justify-between items-center">
             <span class="text-sm text-[#a66bff]">Typeform → Notion DB → Slack alert</span>
             <button class="px-4 py-2 bg-[#a66bff] hover:bg-[#955af0] rounded text-white font-medium transition">
-              Get this Agent
+              <span class="translate" data-key="agents.cta">Get this Agent</span>
             </button>
           </div>
         </div>
@@ -266,18 +308,18 @@
             </div>
             <div>
               <h3 class="text-xl font-bold">Clientron</h3>
-              <p class="text-[#6b8cff]">Billing Automation Unit</p>
+              <p class="text-[#6b8cff] translate" data-key="agents.clientron.title">Billing Automation Unit</p>
             </div>
           </div>
           <div class="mb-6">
             <img src="https://illustrations.popsy.co/amber/business-plan.svg" alt="Clientron" class="w-full h-48 object-contain character-img">
           </div>
-          <h4 class="text-lg font-semibold mb-2">Auto-Invoicer</h4>
-          <p class="mb-4">Generates professional invoices when deals close in your CRM, sends them to clients, and follows up on unpaid invoices automatically.</p>
+          <h4 class="text-lg font-semibold mb-2 translate" data-key="agents.clientron.subtitle">Auto-Invoicer</h4>
+          <p class="mb-4 translate" data-key="agents.clientron.desc">Generates professional invoices when deals close in your CRM, sends them to clients, and follows up on unpaid invoices automatically.</p>
           <div class="flex justify-between items-center">
             <span class="text-sm text-[#6b8cff]">Pipedrive → Invoice Ninja → Email</span>
             <button class="px-4 py-2 bg-[#6b8cff] hover:bg-[#5a7bef] rounded text-white font-medium transition">
-              Get this Agent
+              <span class="translate" data-key="agents.cta">Get this Agent</span>
             </button>
           </div>
         </div>
@@ -292,18 +334,18 @@
             </div>
             <div>
               <h3 class="text-xl font-bold">Postari</h3>
-              <p class="text-[#a66bff]">Social Media Publisher</p>
+              <p class="text-[#a66bff] translate" data-key="agents.postari.title">Social Media Publisher</p>
             </div>
           </div>
           <div class="mb-6">
             <img src="https://illustrations.popsy.co/amber/social-growth.svg" alt="Postari" class="w-full h-48 object-contain character-img">
           </div>
-          <h4 class="text-lg font-semibold mb-2">Social Scheduler</h4>
-          <p class="mb-4">Publishes social media posts from your Notion content calendar to all platforms with optimal timing and automatic hashtag generation.</p>
+          <h4 class="text-lg font-semibold mb-2 translate" data-key="agents.postari.subtitle">Social Scheduler</h4>
+          <p class="mb-4 translate" data-key="agents.postari.desc">Publishes social media posts from your Notion content calendar to all platforms with optimal timing and automatic hashtag generation.</p>
           <div class="flex justify-between items-center">
             <span class="text-sm text-[#a66bff]">Notion → Buffer → LinkedIn, Twitter</span>
             <button class="px-4 py-2 bg-[#a66bff] hover:bg-[#955af0] rounded text-white font-medium transition">
-              Get this Agent
+              <span class="translate" data-key="agents.cta">Get this Agent</span>
             </button>
           </div>
         </div>
@@ -311,9 +353,9 @@
     </div>
     
     <div class="mt-12 text-center">
-      <p class="mb-6">Don't see exactly what you need? We build custom Hero Agents too!</p>
+      <p class="mb-6 translate" data-key="agents.customText">Don't see exactly what you need? We build custom Hero Agents too!</p>
       <a href="#contact" class="inline-block px-8 py-3 bg-gradient-to-r from-[#6b8cff] to-[#a66bff] rounded-lg text-white font-bold hover:opacity-90 transition">
-        Request Custom Agent <i class="fas fa-magic ml-2"></i>
+        <span class="translate" data-key="agents.customCta">Request Custom Agent</span> <i class="fas fa-magic ml-2"></i>
       </a>
     </div>
   </section>
@@ -321,8 +363,8 @@
   <!-- How It Works -->
   <section id="how-it-works" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-5xl font-bold mb-6">How It <span class="gradient-text">Works</span></h2>
-      <p class="text-xl max-w-3xl mx-auto">Getting started with Hero Agents has never been easier.</p>
+      <h2 class="text-3xl md:text-5xl font-bold mb-6"><span class="translate" data-key="howItWorks.title1">How It</span> <span class="gradient-text translate" data-key="howItWorks.title2">Works</span></h2>
+      <p class="text-xl max-w-3xl mx-auto translate" data-key="howItWorks.subtitle">Getting started with Hero Agents has never been easier.</p>
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -334,8 +376,8 @@
           <div class="text-[#6b8cff] text-4xl mb-4">
             <i class="fas fa-calendar-check"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3">Book a Call</h3>
-          <p>Schedule a free consultation to discuss your automation needs and goals.</p>
+          <h3 class="text-xl font-bold mb-3 translate" data-key="howItWorks.step1.title">Book a Call</h3>
+          <p class="translate" data-key="howItWorks.step1.desc">Schedule a free consultation to discuss your automation needs and goals.</p>
         </div>
       </div>
       
@@ -347,8 +389,8 @@
           <div class="text-[#a66bff] text-4xl mb-4">
             <i class="fas fa-project-diagram"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3">We Design</h3>
-          <p>Our team creates a custom Hero Agent solution tailored to your specific requirements.</p>
+          <h3 class="text-xl font-bold mb-3 translate" data-key="howItWorks.step2.title">We Design</h3>
+          <p class="translate" data-key="howItWorks.step2.desc">Our team creates a custom Hero Agent solution tailored to your specific requirements.</p>
         </div>
       </div>
       
@@ -360,8 +402,8 @@
           <div class="text-[#6b8cff] text-4xl mb-4">
             <i class="fas fa-clock"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3">You Save Time</h3>
-          <p>Start enjoying the benefits of automation, saving hours every week.</p>
+          <h3 class="text-xl font-bold mb-3 translate" data-key="howItWorks.step3.title">You Save Time</h3>
+          <p class="translate" data-key="howItWorks.step3.desc">Start enjoying the benefits of automation, saving hours every week.</p>
         </div>
       </div>
     </div>
@@ -372,26 +414,26 @@
           <img src="https://illustrations.popsy.co/amber/time-management.svg" alt="Time Savings" class="w-full max-w-md mx-auto">
         </div>
         <div class="md:w-1/2 md:pl-8">
-          <h3 class="text-2xl md:text-3xl font-bold mb-6">What Our Clients Say</h3>
+          <h3 class="text-2xl md:text-3xl font-bold mb-6 translate" data-key="howItWorks.testimonialsTitle">What Our Clients Say</h3>
           <div class="mb-6 p-4 bg-white rounded-lg border border-[#d0c0ff]">
             <div class="flex items-center mb-2">
               <div class="w-10 h-10 rounded-full bg-[#6b8cff] flex items-center justify-center text-white font-bold mr-3">JS</div>
               <div>
                 <h4 class="font-bold">Jamie S.</h4>
-                <p class="text-sm text-[#6b8cff]">Marketing Director</p>
+                <p class="text-sm text-[#6b8cff] translate" data-key="howItWorks.testimonial1.role">Marketing Director</p>
               </div>
             </div>
-            <p>"The social media automation has saved me 10+ hours per week. Now I can focus on strategy instead of posting."</p>
+            <p class="translate" data-key="howItWorks.testimonial1.text">"The social media automation has saved me 10+ hours per week. Now I can focus on strategy instead of posting."</p>
           </div>
           <div class="p-4 bg-white rounded-lg border border-[#d0c0ff]">
             <div class="flex items-center mb-2">
               <div class="w-10 h-10 rounded-full bg-[#a66bff] flex items-center justify-center text-white font-bold mr-3">AM</div>
               <div>
                 <h4 class="font-bold">Alex M.</h4>
-                <p class="text-sm text-[#a66bff]">Small Business Owner</p>
+                <p class="text-sm text-[#a66bff] translate" data-key="howItWorks.testimonial2.role">Small Business Owner</p>
               </div>
             </div>
-            <p>"Clientron handles all my invoicing automatically. No more chasing payments or manual data entry!"</p>
+            <p class="translate" data-key="howItWorks.testimonial2.text">"Clientron handles all my invoicing automatically. No more chasing payments or manual data entry!"</p>
           </div>
         </div>
       </div>
@@ -403,8 +445,8 @@
     <div class="bg-gradient-to-r from-[#6b8cff] to-[#a66bff] rounded-xl p-8 md:p-12">
       <div class="flex flex-col md:flex-row">
         <div class="md:w-1/2 mb-8 md:mb-0">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to <span class="gradient-text">Automate</span>?</h2>
-          <p class="text-xl mb-6 text-white">Let's discuss how we can save you time and streamline your workflows.</p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white"><span class="translate" data-key="contact.ready">Ready to</span> <span class="gradient-text translate" data-key="contact.automate">Automate</span>?</h2>
+          <p class="text-xl mb-6 text-white translate" data-key="contact.subtitle">Let's discuss how we can save you time and streamline your workflows.</p>
           <div class="flex flex-col space-y-4 text-white">
             <div class="flex items-center">
               <i class="fas fa-envelope text-white mr-4 text-xl"></i>
@@ -423,19 +465,19 @@
         <div class="md:w-1/2 md:pl-8">
           <form class="space-y-4">
             <div>
-              <label for="name" class="block text-sm font-medium mb-1 text-white">Name</label>
+              <label for="name" class="block text-sm font-medium mb-1 text-white translate" data-key="contact.form.name">Name</label>
               <input type="text" id="name" class="w-full px-4 py-3 bg-white/90 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a66bff]">
             </div>
             <div>
-              <label for="email" class="block text-sm font-medium mb-1 text-white">Email</label>
+              <label for="email" class="block text-sm font-medium mb-1 text-white translate" data-key="contact.form.email">Email</label>
               <input type="email" id="email" class="w-full px-4 py-3 bg-white/90 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a66bff]">
             </div>
             <div>
-              <label for="message" class="block text-sm font-medium mb-1 text-white">What would you like to automate?</label>
+              <label for="message" class="block text-sm font-medium mb-1 text-white translate" data-key="contact.form.message">What would you like to automate?</label>
               <textarea id="message" rows="4" class="w-full px-4 py-3 bg-white/90 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a66bff]"></textarea>
             </div>
             <button type="submit" class="w-full px-6 py-3 bg-white hover:bg-white/90 rounded-lg text-[#6b8cff] font-bold transition">
-              Send Message <i class="fas fa-paper-plane ml-2"></i>
+              <span class="translate" data-key="contact.form.submit">Send Message</span> <i class="fas fa-paper-plane ml-2"></i>
             </button>
           </form>
         </div>
@@ -449,7 +491,7 @@
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="mb-6 md:mb-0">
           <span class="text-2xl font-bold gradient-text">Neonys</span>
-          <p class="text-[#6b8cff] mt-2">Hero Agents for the future.</p>
+          <p class="text-[#6b8cff] mt-2 translate" data-key="footer.tagline">Hero Agents for the future.</p>
         </div>
         <div class="flex space-x-6">
           <a href="#" class="text-[#6b8cff] hover:text-[#a66bff] transition">
@@ -464,17 +506,404 @@
         </div>
       </div>
       <div class="mt-8 pt-8 border-t border-[#d0c0ff] flex flex-col md:flex-row justify-between items-center">
-        <p class="text-[#6b8cff] text-sm mb-4 md:mb-0">© 2023 Neonys. All rights reserved.</p>
+        <p class="text-[#6b8cff] text-sm mb-4 md:mb-0">© 2023 Neonys. <span class="translate" data-key="footer.rights">All rights reserved.</span></p>
         <div class="flex space-x-6">
-          <a href="#" class="text-[#6b8cff] hover:text-[#a66bff] text-sm transition">Privacy Policy</a>
-          <a href="#" class="text-[#6b8cff] hover:text-[#a66bff] text-sm transition">Terms of Service</a>
-          <a href="#" class="text-[#6b8cff] hover:text-[#a66bff] text-sm transition">Contact Us</a>
+          <a href="#" class="text-[#6b8cff] hover:text-[#a66bff] text-sm transition translate" data-key="footer.privacy">Privacy Policy</a>
+          <a href="#" class="text-[#6b8cff] hover:text-[#a66bff] text-sm transition translate" data-key="footer.terms">Terms of Service</a>
+          <a href="#" class="text-[#6b8cff] hover:text-[#a66bff] text-sm transition translate" data-key="footer.contact">Contact Us</a>
         </div>
       </div>
     </div>
   </footer>
 
   <script>
+    // Language translations
+    const translations = {
+      en: {
+        nav: {
+          home: "Home",
+          about: "About",
+          agents: "Hero Agents",
+          howItWorks: "How It Works",
+          contact: "Contact"
+        },
+        hero: {
+          title1: "Your Digital",
+          title2: "Hero Agents",
+          subtitle: "Futuristic assistants that handle your digital routines. Welcome to effortless productivity.",
+          cta1: "Meet the Agents",
+          cta2: "Get Started"
+        },
+        about: {
+          title1: "Why Choose",
+          title2: "Neonys",
+          subtitle: "Neonys Hero Agents free your mind and schedule, handling the digital noise so you can focus on what truly matters.",
+          feature1: {
+            title: "Effortless",
+            desc: "Each Hero Agent performs complex tasks seamlessly in the background. Set it, forget it."
+          },
+          feature2: {
+            title: "Smart",
+            desc: "Designed with adaptive logic, your Hero Agents learn and optimize over time."
+          },
+          feature3: {
+            title: "Secure",
+            desc: "Neonys operates behind the scenes with privacy-first protocols and robust security."
+          },
+          whyTitle: "Why Hero Agents?",
+          benefit1: "Specialized in specific digital tasks",
+          benefit2: "24/7 operation without fatigue",
+          benefit3: "Integrates with all your favorite apps",
+          benefit4: "Visual interface makes monitoring easy",
+          benefit5: "Smart error handling and recovery",
+          benefit6: "Cost-effective compared to human assistants"
+        },
+        agents: {
+          title1: "Meet Your",
+          title2: "Hero Agents",
+          subtitle: "Each Hero Agent specializes in a domain of your digital life — from inboxes to insights.",
+          inboxa: {
+            title: "Email Organizer Agent",
+            subtitle: "Inbox Zeroer",
+            desc: "Sorts all your incoming emails, moves attachments to cloud storage, filters spam, and sends notifications only for important messages."
+          },
+          leado: {
+            title: "Lead Capture Agent",
+            subtitle: "Lead Magnet",
+            desc: "Automatically captures leads from Typeform, enriches them with additional data, and sends them to Notion & Slack with priority tagging."
+          },
+          clientron: {
+            title: "Billing Automation Unit",
+            subtitle: "Auto-Invoicer",
+            desc: "Generates professional invoices when deals close in your CRM, sends them to clients, and follows up on unpaid invoices automatically."
+          },
+          postari: {
+            title: "Social Media Publisher",
+            subtitle: "Social Scheduler",
+            desc: "Publishes social media posts from your Notion content calendar to all platforms with optimal timing and automatic hashtag generation."
+          },
+          cta: "Get this Agent",
+          customText: "Don't see exactly what you need? We build custom Hero Agents too!",
+          customCta: "Request Custom Agent"
+        },
+        howItWorks: {
+          title1: "How It",
+          title2: "Works",
+          subtitle: "Getting started with Hero Agents has never been easier.",
+          step1: {
+            title: "Book a Call",
+            desc: "Schedule a free consultation to discuss your automation needs and goals."
+          },
+          step2: {
+            title: "We Design",
+            desc: "Our team creates a custom Hero Agent solution tailored to your specific requirements."
+          },
+          step3: {
+            title: "You Save Time",
+            desc: "Start enjoying the benefits of automation, saving hours every week."
+          },
+          testimonialsTitle: "What Our Clients Say",
+          testimonial1: {
+            role: "Marketing Director",
+            text: "\"The social media automation has saved me 10+ hours per week. Now I can focus on strategy instead of posting.\""
+          },
+          testimonial2: {
+            role: "Small Business Owner",
+            text: "\"Clientron handles all my invoicing automatically. No more chasing payments or manual data entry!\""
+          }
+        },
+        contact: {
+          ready: "Ready to",
+          automate: "Automate",
+          subtitle: "Let's discuss how we can save you time and streamline your workflows.",
+          form: {
+            name: "Name",
+            email: "Email",
+            message: "What would you like to automate?",
+            submit: "Send Message"
+          }
+        },
+        footer: {
+          tagline: "Hero Agents for the future.",
+          rights: "All rights reserved.",
+          privacy: "Privacy Policy",
+          terms: "Terms of Service",
+          contact: "Contact Us"
+        }
+      },
+      es: {
+        nav: {
+          home: "Inicio",
+          about: "Acerca de",
+          agents: "Agentes Héroes",
+          howItWorks: "Cómo Funciona",
+          contact: "Contacto"
+        },
+        hero: {
+          title1: "Tus Agentes",
+          title2: "Héroes Digitales",
+          subtitle: "Asistentes futuristas que manejan tus rutinas digitales. Bienvenido a la productividad sin esfuerzo.",
+          cta1: "Conoce los Agentes",
+          cta2: "Comenzar"
+        },
+        about: {
+          title1: "¿Por qué elegir",
+          title2: "Neonys",
+          subtitle: "Los Agentes Héroes de Neonys liberan tu mente y agenda, manejando el ruido digital para que puedas enfocarte en lo que realmente importa.",
+          feature1: {
+            title: "Sin Esfuerzo",
+            desc: "Cada Agente Héroe realiza tareas complejas sin problemas en segundo plano. Configúralo y olvídate."
+          },
+          feature2: {
+            title: "Inteligente",
+            desc: "Diseñados con lógica adaptativa, tus Agentes Héroes aprenden y optimizan con el tiempo."
+          },
+          feature3: {
+            title: "Seguro",
+            desc: "Neonys opera detrás de escena con protocolos de privacidad primero y seguridad robusta."
+          },
+          whyTitle: "¿Por qué Agentes Héroes?",
+          benefit1: "Especializados en tareas digitales específicas",
+          benefit2: "Operación 24/7 sin fatiga",
+          benefit3: "Se integra con todas tus aplicaciones favoritas",
+          benefit4: "Interfaz visual facilita el monitoreo",
+          benefit5: "Manejo inteligente de errores y recuperación",
+          benefit6: "Más rentable que asistentes humanos"
+        },
+        agents: {
+          title1: "Conoce a tus",
+          title2: "Agentes Héroes",
+          subtitle: "Cada Agente Héroe se especializa en un dominio de tu vida digital, desde correos hasta insights.",
+          inboxa: {
+            title: "Agente Organizador de Correo",
+            subtitle: "Bandeja Cero",
+            desc: "Clasifica todos tus correos entrantes, mueve archivos adjuntos al almacenamiento en la nube, filtra spam y solo envía notificaciones para mensajes importantes."
+          },
+          leado: {
+            title: "Agente de Captación de Leads",
+            subtitle: "Imán de Leads",
+            desc: "Captura automáticamente leads de Typeform, los enriquece con datos adicionales y los envía a Notion y Slack con etiquetas de prioridad."
+          },
+          clientron: {
+            title: "Unidad de Facturación Automatizada",
+            subtitle: "Facturación Automática",
+            desc: "Genera facturas profesionales cuando se cierran tratos en tu CRM, las envía a clientes y sigue automáticamente con facturas no pagadas."
+          },
+          postari: {
+            title: "Publicador de Redes Sociales",
+            subtitle: "Programador Social",
+            desc: "Publica en redes sociales desde tu calendario de contenido en Notion a todas las plataformas con tiempo óptimo y generación automática de hashtags."
+          },
+          cta: "Obtén este Agente",
+          customText: "¿No ves exactamente lo que necesitas? ¡También construimos Agentes Héroes personalizados!",
+          customCta: "Solicitar Agente Personalizado"
+        },
+        howItWorks: {
+          title1: "Cómo",
+          title2: "Funciona",
+          subtitle: "Comenzar con Agentes Héroes nunca ha sido tan fácil.",
+          step1: {
+            title: "Reserva una Llamada",
+            desc: "Programa una consulta gratuita para discutir tus necesidades de automatización y objetivos."
+          },
+          step2: {
+            title: "Nosotros Diseñamos",
+            desc: "Nuestro equipo crea una solución de Agente Héroe personalizada adaptada a tus requisitos específicos."
+          },
+          step3: {
+            title: "Tú Ahorras Tiempo",
+            desc: "Comienza a disfrutar los beneficios de la automatización, ahorrando horas cada semana."
+          },
+          testimonialsTitle: "Lo que Dicen Nuestros Clientes",
+          testimonial1: {
+            role: "Director de Marketing",
+            text: "\"La automatización de redes sociales me ha ahorrado más de 10 horas por semana. Ahora puedo enfocarme en estrategia en lugar de publicar.\""
+          },
+          testimonial2: {
+            role: "Dueño de Pequeño Negocio",
+            text: "\"Clientron maneja todas mis facturas automáticamente. ¡No más perseguir pagos o entrada manual de datos!\""
+          }
+        },
+        contact: {
+          ready: "¿Listo para",
+          automate: "Automatizar?",
+          subtitle: "Hablemos sobre cómo podemos ahorrarte tiempo y optimizar tus flujos de trabajo.",
+          form: {
+            name: "Nombre",
+            email: "Correo Electrónico",
+            message: "¿Qué te gustaría automatizar?",
+            submit: "Enviar Mensaje"
+          }
+        },
+        footer: {
+          tagline: "Agentes Héroes para el futuro.",
+          rights: "Todos los derechos reservados.",
+          privacy: "Política de Privacidad",
+          terms: "Términos de Servicio",
+          contact: "Contáctanos"
+        }
+      },
+      fr: {
+        nav: {
+          home: "Accueil",
+          about: "À propos",
+          agents: "Agents Héro",
+          howItWorks: "Comment ça marche",
+          contact: "Contact"
+        },
+        hero: {
+          title1: "Vos Agents",
+          title2: "Héro Numériques",
+          subtitle: "Assistants futuristes qui gèrent vos routines numériques. Bienvenue dans une productivité sans effort.",
+          cta1: "Découvrez les Agents",
+          cta2: "Commencer"
+        },
+        about: {
+          title1: "Pourquoi choisir",
+          title2: "Neonys",
+          subtitle: "Les Agents Héro de Neonys libèrent votre esprit et votre emploi du temps, gérant le bruit numérique pour que vous puissiez vous concentrer sur ce qui compte vraiment.",
+          feature1: {
+            title: "Sans Effort",
+            desc: "Chaque Agent Héro effectue des tâches complexes en arrière-plan sans problème. Configurez-le et oubliez-le."
+          },
+          feature2: {
+            title: "Intelligent",
+            desc: "Conçus avec une logique adaptative, vos Agents Héro apprennent et s'optimisent avec le temps."
+          },
+          feature3: {
+            title: "Sécurisé",
+            desc: "Neonys opère en arrière-plan avec des protocoles axés sur la confidentialité et une sécurité robuste."
+          },
+          whyTitle: "Pourquoi des Agents Héro?",
+          benefit1: "Spécialisés dans des tâches numériques spécifiques",
+          benefit2: "Fonctionnement 24/7 sans fatigue",
+          benefit3: "S'intègre à toutes vos applications préférées",
+          benefit4: "Interface visuelle pour un suivi facile",
+          benefit5: "Gestion intelligente des erreurs et récupération",
+          benefit6: "Plus économique que des assistants humains"
+        },
+        agents: {
+          title1: "Découvrez vos",
+          title2: "Agents Héro",
+          subtitle: "Chaque Agent Héro se spécialise dans un domaine de votre vie numérique - des emails aux insights.",
+          inboxa: {
+            title: "Agent Organisateur d'Emails",
+            subtitle: "Boîte Zéro",
+            desc: "Trie tous vos emails entrants, déplace les pièces jointes vers le stockage cloud, filtre le spam et n'envoie des notifications que pour les messages importants."
+          },
+          leado: {
+            title: "Agent de Capture de Leads",
+            subtitle: "Aimant à Leads",
+            desc: "Capture automatiquement les leads depuis Typeform, les enrichit avec des données supplémentaires et les envoie à Notion et Slack avec un étiquetage prioritaire."
+          },
+          clientron: {
+            title: "Unité de Facturation Automatisée",
+            subtitle: "Facturation Auto",
+            desc: "Génère des factures professionnelles lorsque des accords sont conclus dans votre CRM, les envoie aux clients et suit automatiquement les factures impayées."
+          },
+          postari: {
+            title: "Agent de Publication sur les Réseaux Sociaux",
+            subtitle: "Planificateur Social",
+            desc: "Publie sur les réseaux sociaux depuis votre calendrier de contenu Notion vers toutes les plateformes avec un timing optimal et une génération automatique de hashtags."
+          },
+          cta: "Obtenir cet Agent",
+          customText: "Vous ne trouvez pas exactement ce dont vous avez besoin ? Nous créons aussi des Agents Héro sur mesure !",
+          customCta: "Demander un Agent Personnalisé"
+        },
+        howItWorks: {
+          title1: "Comment ça",
+          title2: "Marche",
+          subtitle: "Commencer avec les Agents Héro n'a jamais été aussi simple.",
+          step1: {
+            title: "Réservez un Appel",
+            desc: "Planifiez une consultation gratuite pour discuter de vos besoins en automatisation et de vos objectifs."
+          },
+          step2: {
+            title: "Nous Concevons",
+            desc: "Notre équipe crée une solution d'Agent Héro personnalisée adaptée à vos besoins spécifiques."
+          },
+          step3: {
+            title: "Vous Gagnez du Temps",
+            desc: "Commencez à profiter des avantages de l'automatisation, en gagnant des heures chaque semaine."
+          },
+          testimonialsTitle: "Ce que Disent Nos Clients",
+          testimonial1: {
+            role: "Directeur Marketing",
+            text: "\"L'automatisation des réseaux sociaux m'a fait gagner plus de 10 heures par semaine. Maintenant je peux me concentrer sur la stratégie au lieu de publier.\""
+          },
+          testimonial2: {
+            role: "Propriétaire de Petite Entreprise",
+            text: "\"Clientron gère toutes mes factures automatiquement. Plus besoin de relancer les paiements ou de saisir manuellement les données !\""
+          }
+        },
+        contact: {
+          ready: "Prêt à",
+          automate: "Automatiser?",
+          subtitle: "Discutons de comment nous pouvons vous faire gagner du temps et optimiser vos flux de travail.",
+          form: {
+            name: "Nom",
+            email: "Email",
+            message: "Que souhaitez-vous automatiser?",
+            submit: "Envoyer le Message"
+          }
+        },
+        footer: {
+          tagline: "Agents Héro pour l'avenir.",
+          rights: "Tous droits réservés.",
+          privacy: "Politique de Confidentialité",
+          terms: "Conditions de Service",
+          contact: "Contactez-nous"
+        }
+      }
+    };
+
+    // Language switcher functionality
+    let currentLanguage = 'en';
+
+    function changeLanguage(lang) {
+      currentLanguage = lang;
+      document.documentElement.lang = lang;
+      
+      // Update flag and language code in selector
+      document.getElementById('current-flag').src = `https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang}.png`;
+      document.getElementById('current-language').textContent = lang.toUpperCase();
+      
+      // Update all translatable elements
+      document.querySelectorAll('.translate').forEach(element => {
+        const keys = element.getAttribute('data-key').split('.');
+        let translation = translations[lang];
+        
+        for (const key of keys) {
+          translation = translation[key];
+          if (!translation) break;
+        }
+        
+        if (translation) {
+          element.textContent = translation;
+        }
+      });
+      
+      // Store preference in localStorage
+      localStorage.setItem('neonys-language', lang);
+    }
+
+    // Initialize language from localStorage or browser preference
+    function initLanguage() {
+      const savedLanguage = localStorage.getItem('neonys-language');
+      const browserLanguage = navigator.language.substring(0, 2);
+      
+      if (savedLanguage && translations[savedLanguage]) {
+        changeLanguage(savedLanguage);
+      } else if (translations[browserLanguage]) {
+        changeLanguage(browserLanguage);
+      } else {
+        changeLanguage('en');
+      }
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', initLanguage);
+
     // Simple smooth scrolling for navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
