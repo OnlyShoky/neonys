@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutomateFlow | n8n Automation Experts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .character-card {
+            transition: all 0.3s ease;
+            border-radius: 1rem;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .character-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .character-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .character-img {
+            transition: all 0.5s ease;
+        }
+        
+        .character-card:hover .character-img {
+            transform: scale(1.05);
+        }
+        
+        .glow {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+        
+        .glow:hover {
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.8);
+        }
+        
+        .section-divider {
+            height: 100px;
+            width: 100%;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, #0f172a 100%);
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-opacity-90 backdrop-blur-sm bg-gray-900 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-2xl font-bold gradient-text">AutomateFlow</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white">Home</a>
+                        <a href="#about" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white">About</a>
+                        <a href="#automations" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white">Automations</a>
+                        <a href="#how-it-works" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white">How It Works</a>
+                        <a href="#contact" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">Your Time, <span class="gradient-text">Automated</span></h1>
+                <p class="text-xl text-gray-300 mb-8">We build custom automations using n8n that save you time and money.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#automations" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-white font-bold text-lg hover:opacity-90 transition duration-300 glow flex items-center justify-center">
+                        See Automations <i class="fas fa-arrow-down ml-2"></i>
+                    </a>
+                    <a href="#contact" class="px-8 py-4 border border-gray-700 rounded-lg text-white font-bold text-lg hover:bg-gray-800 transition duration-300 flex items-center justify-center">
+                        Get Started <i class="fas fa-rocket ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://illustrations.popsy.co/amber/automation.svg" alt="Automation Illustration" class="w-full max-w-md floating">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Why Choose <span class="gradient-text">AutomateFlow</span>?</h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">We transform your repetitive tasks into seamless workflows, giving you back precious hours every week.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-blue-500 transition duration-300">
+                <div class="text-blue-400 text-4xl mb-4">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">n8n Experts</h3>
+                <p class="text-gray-300">Our team specializes in n8n, the powerful open-source automation tool that gives you flexibility without vendor lock-in.</p>
+            </div>
+            
+            <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-purple-500 transition duration-300">
+                <div class="text-purple-400 text-4xl mb-4">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Time Savings</h3>
+                <p class="text-gray-300">Each automation we build saves you hours every week, letting you focus on what really matters in your business.</p>
+            </div>
+            
+            <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-green-500 transition duration-300">
+                <div class="text-green-400 text-4xl mb-4">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Data Security</h3>
+                <p class="text-gray-300">With n8n, your data stays with you. We help you set up automations that respect your privacy and security requirements.</p>
+            </div>
+        </div>
+        
+        <div class="mt-16 bg-gradient-to-r from-blue-900 to-purple-900 rounded-xl p-8 md:p-12 border border-gray-700">
+            <h3 class="text-2xl md:text-3xl font-bold mb-6">Why n8n?</h3>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-blue-400 mt-1 mr-3"></i>
+                    <span>Open-source with no vendor lock-in</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-blue-400 mt-1 mr-3"></i>
+                    <span>Self-hostable for complete data control</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-blue-400 mt-1 mr-3"></i>
+                    <span>Connects with 300+ apps and services</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-blue-400 mt-1 mr-3"></i>
+                    <span>Visual workflow builder makes logic clear</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-blue-400 mt-1 mr-3"></i>
+                    <span>Powerful error handling and debugging</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-blue-400 mt-1 mr-3"></i>
+                    <span>Cost-effective compared to alternatives</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Automations Gallery -->
+    <section id="automations" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Meet Our <span class="gradient-text">Automation Team</span></h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">Each of our specialized AI assistants handles a specific automation challenge.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <!-- Inboxia -->
+            <div class="character-card bg-gray-800 p-6 border border-gray-700">
+                <div class="character-bg bg-blue-500"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 rounded-full bg-blue-500 flex items-center justify-center mr-4">
+                            <i class="fas fa-envelope text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Inboxia</h3>
+                            <p class="text-blue-400">Email Management Specialist</p>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <img src="https://illustrations.popsy.co/amber/digital-nomad.svg" alt="Inboxia" class="w-full h-48 object-contain character-img">
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">Inbox Zeroer</h4>
+                    <p class="text-gray-300 mb-4">Sorts all your incoming emails, moves attachments to cloud storage, filters spam, and sends notifications only for important messages.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">Gmail → Filter → Categorize → Notify</span>
+                        <button class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white font-medium transition duration-300">
+                            Get this Automation
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Leado -->
+            <div class="character-card bg-gray-800 p-6 border border-gray-700">
+                <div class="character-bg bg-green-500"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 rounded-full bg-green-500 flex items-center justify-center mr-4">
+                            <i class="fas fa-bullseye text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Leado</h3>
+                            <p class="text-green-400">Lead Capture Agent</p>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <img src="https://illustrations.popsy.co/amber/customer-survey.svg" alt="Leado" class="w-full h-48 object-contain character-img">
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">Lead Magnet</h4>
+                    <p class="text-gray-300 mb-4">Automatically captures leads from Typeform, enriches them with additional data, and sends them to Notion & Slack with priority tagging.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">Typeform → Notion DB → Slack alert</span>
+                        <button class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded text-white font-medium transition duration-300">
+                            Get this Automation
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Clientron -->
+            <div class="character-card bg-gray-800 p-6 border border-gray-700">
+                <div class="character-bg bg-orange-500"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 rounded-full bg-orange-500 flex items-center justify-center mr-4">
+                            <i class="fas fa-file-invoice-dollar text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Clientron</h3>
+                            <p class="text-orange-400">Billing Automation Unit</p>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <img src="https://illustrations.popsy.co/amber/business-plan.svg" alt="Clientron" class="w-full h-48 object-contain character-img">
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">Auto-Invoicer</h4>
+                    <p class="text-gray-300 mb-4">Generates professional invoices when deals close in your CRM, sends them to clients, and follows up on unpaid invoices automatically.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">Pipedrive → Invoice Ninja → Email</span>
+                        <button class="px-4 py-2 bg-orange-600 hover:bg-orange-700 rounded text-white font-medium transition duration-300">
+                            Get this Automation
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Postari -->
+            <div class="character-card bg-gray-800 p-6 border border-gray-700">
+                <div class="character-bg bg-purple-500"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 rounded-full bg-purple-500 flex items-center justify-center mr-4">
+                            <i class="fas fa-share-alt text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Postari</h3>
+                            <p class="text-purple-400">Social Media Publisher</p>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <img src="https://illustrations.popsy.co/amber/social-growth.svg" alt="Postari" class="w-full h-48 object-contain character-img">
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">Social Scheduler</h4>
+                    <p class="text-gray-300 mb-4">Publishes social media posts from your Notion content calendar to all platforms with optimal timing and automatic hashtag generation.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-400">Notion → Buffer → LinkedIn, Twitter</span>
+                        <button class="px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded text-white font-medium transition duration-300">
+                            Get this Automation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-12 text-center">
+            <p class="text-gray-300 mb-6">Don't see exactly what you need? We build custom automations too!</p>
+            <a href="#contact" class="inline-block px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-white font-bold hover:opacity-90 transition duration-300">
+                Request Custom Automation <i class="fas fa-magic ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">How It <span class="gradient-text">Works</span></h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">Getting started with automation has never been easier.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 relative">
+                <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold">1</span>
+                </div>
+                <div class="text-center mt-6">
+                    <div class="text-blue-400 text-4xl mb-4">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Book a Call</h3>
+                    <p class="text-gray-300">Schedule a free consultation to discuss your automation needs and goals.</p>
+                </div>
+            </div>
+            
+            <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 relative">
+                <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold">2</span>
+                </div>
+                <div class="text-center mt-6">
+                    <div class="text-purple-400 text-4xl mb-4">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">We Design</h3>
+                    <p class="text-gray-300">Our team creates a custom automation solution tailored to your specific requirements.</p>
+                </div>
+            </div>
+            
+            <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 relative">
+                <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold">3</span>
+                </div>
+                <div class="text-center mt-6">
+                    <div class="text-green-400 text-4xl mb-4">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">You Save Time</h3>
+                    <p class="text-gray-300">Start enjoying the benefits of automation, saving hours every week.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-gray-800 rounded-xl p-8 md:p-12 border border-gray-700">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img src="https://illustrations.popsy.co/amber/time-management.svg" alt="Time Savings" class="w-full max-w-md mx-auto">
+                </div>
+                <div class="md:w-1/2 md:pl-8">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6">What Our Clients Say</h3>
+                    <div class="mb-6 p-4 bg-gray-700 rounded-lg">
+                        <div class="flex items-center mb-2">
+                            <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold mr-3">JS</div>
+                            <div>
+                                <h4 class="font-bold">Jamie S.</h4>
+                                <p class="text-sm text-gray-400">Marketing Director</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"The social media automation has saved me 10+ hours per week. Now I can focus on strategy instead of posting."</p>
+                    </div>
+                    <div class="p-4 bg-gray-700 rounded-lg">
+                        <div class="flex items-center mb-2">
+                            <div class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold mr-3">AM</div>
+                            <div>
+                                <h4 class="font-bold">Alex M.</h4>
+                                <p class="text-sm text-gray-400">Small Business Owner</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"Clientron handles all my invoicing automatically. No more chasing payments or manual data entry!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA & Contact -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="bg-gradient-to-r from-blue-900 to-purple-900 rounded-xl p-8 md:p-12 border border-gray-700">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to <span class="gradient-text">Automate</span>?</h2>
+                    <p class="text-xl text-gray-300 mb-6">Let's discuss how we can save you time and streamline your workflows.</p>
+                    <div class="flex flex-col space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-400 mr-4 text-xl"></i>
+                            <span>hello@automateflow.io</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone-alt text-blue-400 mr-4 text-xl"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-blue-400 mr-4 text-xl"></i>
+                            <span>San Francisco, CA</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-8">
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">What would you like to automate?</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-white font-bold hover:opacity-90 transition duration-300">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-2xl font-bold gradient-text">AutomateFlow</span>
+                    <p class="text-gray-400 mt-2">Your time, automated.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 AutomateFlow. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add animation to character cards on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.character-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
