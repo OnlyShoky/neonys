@@ -109,55 +109,192 @@
   </style>
 </head>
 <body>
-  <!-- Navigation -->
+<!-- Navigation -->
 <nav class="fixed w-full z-50 bg-opacity-80 backdrop-blur-sm bg-white border-b border-[#d0c0ff]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
+      
+      <!-- Logo -->
       <div class="flex items-center">
-        <!-- Logo image added here -->
-        <img src="NeonysLogo.png" alt="Logo" class="h-10 w-10 mr-3" />
+        <img src="NeonysLogo.png" alt="Neonys Logo" class="h-10 w-10 mr-3" loading="lazy" />
         <span class="text-2xl font-bold gradient-text">Neonys</span>
       </div>
-        <div class="hidden md:flex items-center space-x-4">
-          <div class="flex items-baseline space-x-4 text-[#3a3a3a]">
-            <a href="#home" class="hover:text-[#6b8cff] nav-link" data-key="nav.home">Home</a>
-            <a href="#about" class="hover:text-[#6b8cff] nav-link" data-key="nav.about">About</a>
-            <a href="#agents" class="hover:text-[#6b8cff] nav-link" data-key="nav.agents">Hero Agents</a>
-            <a href="#how-it-works" class="hover:text-[#6b8cff] nav-link" data-key="nav.howItWorks">How It Works</a>
-            <a href="#contact" class="hover:text-[#6b8cff] nav-link" data-key="nav.contact">Contact</a>
-          </div>
-          <div class="language-selector ml-6">
-            <button class="flex items-center text-[#3a3a3a] hover:text-[#6b8cff]">
-              <img src="https://flagcdn.com/w20/gb.png" class="language-flag" id="current-flag">
-              <span id="current-language">EN</span>
-              <i class="fas fa-chevron-down ml-1 text-xs"></i>
-            </button>
-            <div class="language-dropdown">
-              <div class="language-option" onclick="changeLanguage('en')">
-                <img src="https://flagcdn.com/w20/gb.png" class="language-flag">
-                <span>English</span>
-              </div>
-              <div class="language-option" onclick="changeLanguage('es')">
-                <img src="https://flagcdn.com/w20/es.png" class="language-flag">
-                <span>Español</span>
-              </div>
-              <div class="language-option" onclick="changeLanguage('fr')">
-                <img src="https://flagcdn.com/w20/fr.png" class="language-flag">
-                <span>Français</span>
-              </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-4">
+        <div class="flex items-baseline space-x-4 text-[#3a3a3a]">
+          <a href="#home" class="hover:text-[#6b8cff] nav-link" data-key="nav.home">Home</a>
+          <a href="#about" class="hover:text-[#6b8cff] nav-link" data-key="nav.about">About</a>
+          <a href="#agents" class="hover:text-[#6b8cff] nav-link" data-key="nav.agents">Hero Agents</a>
+          <a href="#how-it-works" class="hover:text-[#6b8cff] nav-link" data-key="nav.howItWorks">How It Works</a>
+          <a href="#contact" class="hover:text-[#6b8cff] nav-link" data-key="nav.contact">Contact</a>
+        </div>
+
+        <!-- Language Selector (desktop) -->
+        <div id="language-selector" class="language-selector ml-6 relative">
+          <button id="lang-btn" aria-label="Select Language" aria-expanded="false"
+                  class="flex items-center text-[#3a3a3a] hover:text-[#6b8cff]">
+            <img src="https://flagcdn.com/w20/gb.png" class="language-flag" id="current-flag" alt="English">
+            <span id="current-language" class="ml-1">EN</span>
+            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </button>
+
+          <!-- Note: We intentionally give the dropdown an id/class that we control and JS will toggle -->
+          <div id="lang-dropdown" class="language-dropdown absolute right-0 mt-2 bg-white border rounded-lg shadow-lg z-50">
+            <div class="language-option flex items-center px-3 py-2 hover:bg-gray-100 cursor-pointer" data-lang="en">
+              <img src="https://flagcdn.com/w20/gb.png" class="language-flag mr-2" alt="English">
+              <span>English</span>
+            </div>
+            <div class="language-option flex items-center px-3 py-2 hover:bg-gray-100 cursor-pointer" data-lang="es">
+              <img src="https://flagcdn.com/w20/es.png" class="language-flag mr-2" alt="Español">
+              <span>Español</span>
+            </div>
+            <div class="language-option flex items-center px-3 py-2 hover:bg-gray-100 cursor-pointer" data-lang="fr">
+              <img src="https://flagcdn.com/w20/fr.png" class="language-flag mr-2" alt="Français">
+              <span>Français</span>
             </div>
           </div>
         </div>
-        <div class="md:hidden">
-          <button class="text-[#3a3a3a] hover:text-[#6b8cff] focus:outline-none">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-        </div>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="mobile-menu-button" aria-label="Toggle Menu" aria-expanded="false" class="text-[#3a3a3a] hover:text-[#6b8cff] focus:outline-none">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
       </div>
     </div>
-  </nav>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-[#d0c0ff]">
+    <a href="#home" class="block px-4 py-2 hover:bg-[#f0e8ff]" data-key="nav.home">Home</a>
+    <a href="#about" class="block px-4 py-2 hover:bg-[#f0e8ff]" data-key="nav.about">About</a>
+    <a href="#agents" class="block px-4 py-2 hover:bg-[#f0e8ff]" data-key="nav.agents">Hero Agents</a>
+    <a href="#how-it-works" class="block px-4 py-2 hover:bg-[#f0e8ff]" data-key="nav.howItWorks">How It Works</a>
+    <a href="#contact" class="block px-4 py-2 hover:bg-[#f0e8ff]" data-key="nav.contact">Contact</a>
+
+    <!-- Mobile Language Selector -->
+    <div class="border-t border-[#d0c0ff] px-4 py-3">
+      <div class="flex space-x-3">
+        <div data-lang="en" class="mobile-lang cursor-pointer flex items-center"><img src="https://flagcdn.com/w20/gb.png" class="language-flag mr-1" alt="English"> EN</div>
+        <div data-lang="es" class="mobile-lang cursor-pointer flex items-center"><img src="https://flagcdn.com/w20/es.png" class="language-flag mr-1" alt="Español"> ES</div>
+        <div data-lang="fr" class="mobile-lang cursor-pointer flex items-center"><img src="https://flagcdn.com/w20/fr.png" class="language-flag mr-1" alt="Français"> FR</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Inline override CSS to ensure JS controls the dropdown (prevents the old :hover rule from interfering) -->
+<style>
+  /* Force the dropdown to be hidden unless the wrapper has .open — this overrides older :hover definitions */
+  #language-selector .language-dropdown { display: none !important; opacity: 0; transform: translateY(-6px); pointer-events: none; transition: opacity .12s ease, transform .12s ease; }
+  #language-selector.open .language-dropdown { display: block !important; opacity: 1; transform: translateY(0); pointer-events: auto; }
+</style>
+
+<!-- Script for Menu & Language (improved) -->
+<script>
+  // Mobile menu toggle
+  const mobileBtn = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  mobileBtn.addEventListener("click", (e) => {
+    const isOpen = mobileMenu.classList.toggle("hidden") === false; // true when open
+    mobileBtn.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  // Close mobile menu when clicking an internal anchor (good UX)
+  document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileBtn.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  // Language dropdown (desktop)
+  const langBtn = document.getElementById("lang-btn");
+  const langWrapper = document.getElementById("language-selector");
+  const langDropdown = document.getElementById("lang-dropdown");
+
+  // Open/close when clicking the button
+  langBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const opened = langWrapper.classList.toggle("open");
+    langBtn.setAttribute("aria-expanded", String(opened));
+  });
+
+  // Prevent clicks inside dropdown from bubbling to document (so options can be clicked)
+  langDropdown.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  // Handle option clicks (desktop)
+  langDropdown.querySelectorAll('.language-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const lang = opt.getAttribute('data-lang');
+      if (lang) changeLanguage(lang);
+      // close dropdown after selecting
+      langWrapper.classList.remove('open');
+      langBtn.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  // Mobile language buttons
+  document.querySelectorAll('.mobile-lang').forEach(el => {
+    el.addEventListener('click', () => {
+      const lang = el.getAttribute('data-lang');
+      if (lang) changeLanguage(lang);
+      // close mobile menu after choosing
+      mobileMenu.classList.add('hidden');
+      mobileBtn.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  // Click outside -> close dropdowns
+  document.addEventListener("click", () => {
+    if (langWrapper.classList.contains("open")) {
+      langWrapper.classList.remove("open");
+      langBtn.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // Keyboard: Escape closes menus
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (langWrapper.classList.contains("open")) {
+        langWrapper.classList.remove("open");
+        langBtn.setAttribute("aria-expanded", "false");
+      }
+      if (!mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        mobileBtn.setAttribute("aria-expanded", "false");
+      }
+    }
+  });
+
+  // changeLanguage implementation (keeps your existing function, updates flag + label)
+  function changeLanguage(lang) {
+    const flagMap = {
+      en: "https://flagcdn.com/w20/gb.png",
+      es: "https://flagcdn.com/w20/es.png",
+      fr: "https://flagcdn.com/w20/fr.png"
+    };
+    const flag = flagMap[lang] || flagMap.en;
+    document.getElementById("current-flag").src = flag;
+    document.getElementById("current-language").textContent = lang.toUpperCase();
+
+    // If you already have a translations object and logic, call it here:
+    if (typeof window.changeLanguage === 'function' && window.changeLanguage !== changeLanguage) {
+      // If your original changeLanguage function exists, call it (avoid recursion)
+      window.changeLanguage(lang);
+    }
+  }
+</script>
+
+
 
   <!-- Hero Section -->
   <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -413,7 +550,7 @@
     <div class="bg-[#f0e8ff] rounded-xl p-8 md:p-12 border border-[#d0c0ff]">
       <div class="flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 mb-8 md:mb-0">
-          <img src="https://illustrations.popsy.co/amber/time-management.svg" alt="Time Savings" class="w-full max-w-md mx-auto">
+          <img src="assets/timesaving.png" alt="Time Savings" class="w-full max-w-md mx-auto">
         </div>
         <div class="md:w-1/2 md:pl-8">
           <h3 class="text-2xl md:text-3xl font-bold mb-6 translate" data-key="howItWorks.testimonialsTitle">What Our Clients Say</h3>
