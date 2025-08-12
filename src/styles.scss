@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: #ffffff;
+  color: #3a3a3a;
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-blue to-primary-purple bg-clip-text text-transparent;
+  }
+
+  .character-card {
+    @apply transition-all duration-300 rounded-2xl overflow-hidden relative bg-light-purple border border-border-purple;
+  }
+
+  .character-card:hover {
+    @apply -translate-y-2;
+    box-shadow: 0 20px 25px -5px rgba(107, 140, 255, 0.2);
+  }
+
+  .character-img {
+    @apply transition-all duration-500;
+  }
+
+  .character-card:hover .character-img {
+    @apply scale-105;
+  }
+
+  .glow {
+    box-shadow: 0 0 15px rgba(107, 140, 255, 0.3);
+  }
+
+  .glow:hover {
+    box-shadow: 0 0 25px rgba(107, 140, 255, 0.4);
+  }
+
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .section-divider {
+    @apply h-24 w-full;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+  }
+
+  .language-dropdown {
+    @apply hidden absolute right-0 bg-white min-w-[120px] shadow-lg z-10 rounded-lg border border-border-purple;
+  }
+  
+  .language-selector:hover .language-dropdown {
+    @apply block;
+  }
+  
+  .language-option {
+    @apply p-2 cursor-pointer flex items-center hover:bg-light-purple;
+  }
+  
+  .language-flag {
+    @apply w-5 h-4 mr-2;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}

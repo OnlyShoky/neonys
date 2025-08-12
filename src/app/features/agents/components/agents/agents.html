@@ -1,0 +1,35 @@
+<section id="agents" class="agents-section">
+  <div class="header">
+    <h2>{{ getTranslation('agents.title1') }} <span class="gradient-text">{{ getTranslation('agents.title2') }}</span></h2>
+    <p>{{ getTranslation('agents.subtitle') }}</p>
+  </div>
+
+  <div class="carousel-container">
+    <div class="carousel">
+      <button class="arrow left" (click)="prev()">‹</button>
+      
+      <div class="track-container">
+        <div class="track">
+          <div class="card-wrapper" *ngFor="let agent of agents; let i = index" 
+               [ngClass]="getCardClass(i)" (click)="goTo(i)">
+            <app-agent-card [agent]="agent" (getAgent)="onGetAgent($event)"></app-agent-card>
+          </div>
+        </div>
+      </div>
+      
+      <button class="arrow right" (click)="next()">›</button>
+    </div>
+
+    <div class="dots">
+      <span *ngFor="let agent of agents; let i = index" 
+            class="dot" [class.active]="currentIndex === i" 
+            (click)="goTo(i)"></span>
+    </div>
+  </div>
+  <div class="mt-12 text-center">
+    <p class="mb-6 translate" data-key="agents.customText">{{ getTranslation('agents.customText') }}</p>
+    <a href="#contact" class="inline-block px-8 py-3 bg-gradient-to-r from-[#6b8cff] to-[#a66bff] rounded-lg text-white font-bold hover:opacity-90 transition">
+      <span class="translate" data-key="agents.customCta">{{ getTranslation('agents.customCta') }}</span> <i class="fas fa-magic ml-2"></i>
+    </a>
+  </div>
+</section>

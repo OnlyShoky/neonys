@@ -1,0 +1,82 @@
+<section id="how-it-works" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6">
+      <span>{{ getTranslation('howItWorks.title1') }}</span> 
+      <span class="gradient-text"> {{ getTranslation('howItWorks.title2') }} </span>
+    </h2>
+    <p class="text-xl max-w-3xl mx-auto">{{ getTranslation('howItWorks.subtitle') }}</p>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+    <div class="bg-light-purple p-8 rounded-xl border border-border-purple relative">
+      <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center">
+        <span class="text-white font-bold">1</span>
+      </div>
+      <div class="text-center mt-6">
+        <div class="text-primary-blue text-4xl mb-4">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">{{ getTranslation('howItWorks.step1.title') }}</h3>
+        <p>{{ getTranslation('howItWorks.step1.desc') }}</p>
+      </div>
+    </div>
+    
+    <div class="bg-light-purple p-8 rounded-xl border border-border-purple relative">
+      <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-primary-purple rounded-full flex items-center justify-center">
+        <span class="text-white font-bold">2</span>
+      </div>
+      <div class="text-center mt-6">
+        <div class="text-primary-purple text-4xl mb-4">
+          <i class="fas fa-project-diagram"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">{{ getTranslation('howItWorks.step2.title') }}</h3>
+        <p>{{ getTranslation('howItWorks.step2.desc') }}</p>
+      </div>
+    </div>
+    
+    <div class="bg-light-purple p-8 rounded-xl border border-border-purple relative">
+      <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center">
+        <span class="text-white font-bold">3</span>
+      </div>
+      <div class="text-center mt-6">
+        <div class="text-primary-blue text-4xl mb-4">
+          <i class="fas fa-clock"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">{{ getTranslation('howItWorks.step3.title') }}</h3>
+        <p>{{ getTranslation('howItWorks.step3.desc') }}</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="bg-light-purple rounded-xl p-8 md:p-12 border border-border-purple">
+    <div class="flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-8 md:mb-0">
+        <img src="/assets/timesaving.png" alt="Time Savings" class="w-full max-w-md mx-auto">
+      </div>
+      <div class="md:w-1/2 md:pl-8">
+        <h3 class="text-2xl md:text-3xl font-bold mb-6">{{ getTranslation('howItWorks.testimonialsTitle') }}</h3>
+        <div class="mb-6 p-4 bg-white rounded-lg border border-border-purple">
+          <div class="flex items-center mb-2">
+            <div class="w-10 h-10 rounded-full bg-primary-blue flex items-center justify-center text-white font-bold mr-3">JS</div>
+            <div>
+              <h4 class="font-bold">Jamie S.</h4>
+              <p class="text-sm text-primary-blue">{{ getTranslation('howItWorks.testimonial1.role') }}</p>
+            </div>
+          </div>
+          <p>{{ getTranslation('howItWorks.testimonial1.text') }}</p>
+        </div>
+        <div class="p-4 bg-white rounded-lg border border-border-purple">
+          <div class="flex items-center mb-2">
+            <div class="w-10 h-10 rounded-full bg-primary-purple flex items-center justify-center text-white font-bold mr-3">AM</div>
+            <div>
+              <h4 class="font-bold">Alex M.</h4>
+              <p class="text-sm text-primary-purple">{{ getTranslation('howItWorks.testimonial2.role') }}</p>
+            </div>
+          </div>
+          <p>{{ getTranslation('howItWorks.testimonial2.text') }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

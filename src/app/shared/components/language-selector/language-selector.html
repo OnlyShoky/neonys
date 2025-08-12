@@ -1,0 +1,18 @@
+<div class="language-selector relative inline-block">
+  <button class="flex items-center text-text-gray hover:text-primary-blue">
+    <img [src]="getCurrentFlag()" class="language-flag" id="current-flag">
+    <span id="current-language">{{ getCurrentLanguageCode() }}</span>
+    <i class="fas fa-chevron-down ml-1 text-xs"></i>
+  </button>
+  <div class="language-dropdown">
+    <div 
+      *ngFor="let language of languages" 
+      class="language-option" 
+      (click)="changeLanguage(language.code)"
+    >
+      <img [src]="language.flag" class="language-flag">
+      <span>{{ language.name }}</span>
+    </div>
+  </div>
+</div>
+

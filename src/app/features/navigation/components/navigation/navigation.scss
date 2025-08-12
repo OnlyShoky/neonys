@@ -1,0 +1,43 @@
+
+/* Ajuste para el header fijo */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Transición para los enlaces de navegación */
+.nav-link {
+  transition: all 0.3s ease;
+  position: relative;
+  
+  &:hover {
+    color: #6b8cff;
+    
+    &::after {
+      width: 100%;
+    }
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #6b8cff, #a66bff);
+    transition: width 0.3s ease;
+  }
+}
+
+/* Mejora visual para el menú móvil */
+.md\:hidden {
+  transition: all 0.3s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  
+  &.show {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
