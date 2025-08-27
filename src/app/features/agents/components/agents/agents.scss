@@ -126,3 +126,42 @@
   font-weight: bold;
   text-decoration: none;
 }
+
+/* Ajustements pour les écrans mobiles */
+@media (max-width: 768px) {
+
+  
+  .arrow {
+    margin: 0 0.5rem; /* Réduction importante des marges */
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    position: absolute;
+    z-index: 10;
+  }
+  
+  .arrow.left {
+    left: 5px; /* Positionnement à gauche */
+  }
+  
+  .arrow.right {
+    right: 5px; /* Positionnement à droite */
+  }
+  
+  .track {
+    width: 100%;
+  }
+  
+
+}
+
+/* Pour les très petits écrans */
+@media (max-width: 480px) {
+  .arrow {
+    margin: 0 0.25rem;
+    width: 36px;
+    height: 36px;
+    font-size: 1.25rem;
+  }
+  
+}

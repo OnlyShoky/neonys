@@ -6,8 +6,8 @@
 
   <div class="carousel-container">
     <div class="carousel">
+      <!-- Les flèches sont maintenant positionnées absolument dans le CSS -->
       <button class="arrow left" (click)="prev()">‹</button>
-      
       
       <div class="track-container">
         <div class="track">
@@ -27,6 +27,7 @@
             (click)="goTo(i)"></span>
     </div>
   </div>
+  
   <div class="mt-12 text-center">
     <p class="mb-6 translate" data-key="agents.customText">{{ getTranslation('agents.customText') }}</p>
     <a href="#contact" class="inline-block px-8 py-3 bg-gradient-to-r from-[#6b8cff] to-[#a66bff] rounded-lg text-white font-bold hover:opacity-90 transition">
