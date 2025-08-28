@@ -108,7 +108,7 @@ export class TranslationService {
       },
       contact: {
         ready: "Ready to",
-        automate: "Automate",
+        automate: "automate",
         subtitle: "Let's discuss how we can save you time and streamline your workflows.",
         form: {
           name: "Name",
@@ -141,7 +141,7 @@ export class TranslationService {
     cta2: "Comenzar"
   },
   about: {
-    title1: "Por Qué Elegir",
+    title1: "Por qué Elegir",
     title2: "Neonys",
     subtitle: "Los Agentes Hero de Neonys liberan tu mente y agenda, manejando el ruido digital para que te enfoques en lo que realmente importa.",
     feature1: {
@@ -156,7 +156,7 @@ export class TranslationService {
       title: "Seguro",
       desc: "Neonys opera detrás de escena con protocolos de privacidad y seguridad robustos."
     },
-    whyTitle: "¿Por Qué Agentes Hero?",
+    whyTitle: "¿Por qué Agentes Hero?",
     benefit1: "Especializados en tareas digitales específicas",
     benefit2: "Operación 24/7 sin fatiga",
     benefit3: "Se integran con todas tus aplicaciones favoritas",
@@ -220,7 +220,7 @@ export class TranslationService {
   },
   contact: {
     ready: "Listo para",
-    automate: "Automatizar",
+    automate: "automatizar",
     subtitle: "Hablemos de cómo podemos ahorrarte tiempo y optimizar tus flujos de trabajo.",
     form: {
       name: "Nombre",
@@ -333,7 +333,7 @@ fr: {
   },
   contact: {
     ready: "Prêt à",
-    automate: "Automatiser",
+    automate: "automatiser ?",
     subtitle: "Discutons de comment nous pouvons vous faire gagner du temps et simplifier vos flux de travail.",
     form: {
       name: "Nom",
