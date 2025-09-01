@@ -1,4 +1,5 @@
-<div class="language-selector relative inline-block">
+<!-- DESKTOP: dropdown -->
+<div class="language-selector relative inline-block hidden lg:block">
   <button class="flex items-center text-text-gray hover:text-primary-blue">
     <img [src]="getCurrentFlag()" class="language-flag" id="current-flag">
     <span id="current-language">{{ getCurrentLanguageCode() }}</span>
@@ -16,3 +17,14 @@
   </div>
 </div>
 
+<!-- MOBILE: direct options -->
+<div class="language-selector flex gap-4 sm:flex md:flex lg:hidden">
+  <div 
+    *ngFor="let language of languages" 
+    class="flex items-center cursor-pointer hover:text-primary-blue"
+    (click)="changeLanguage(language.code)"
+  >
+    <img [src]="language.flag" class="language-flag mr-1">
+    <span>{{ language.code }}</span>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslationService } from '../../../core/services/translation';
 
@@ -15,7 +15,8 @@ interface Language {
   templateUrl: './language-selector.html',
   styleUrl: './language-selector.scss'
 })
-export class LanguageSelectorComponent {
+export class LanguageSelectorComponent implements OnInit {
+
   private translationService = inject(TranslationService);
 
   languages: Language[] = [
@@ -35,6 +36,29 @@ export class LanguageSelectorComponent {
       flag: 'https://flagcdn.com/w20/fr.png'
     }
   ];
+
+  private detectDefaultLanguage(): void {
+    // Browser language (e.g. "en-US", "es-ES")
+    const browserLang = navigator.language.split('-')[0]; // take just "en", "es", "fr"
+    console.log('Browser language:', browserLang);
+
+    // Check if supported
+    const supported = this.languages.some(lang => lang.code === browserLang);
+
+    console.log('Supported:', supported);
+
+    setTimeout(() => {
+      if (supported) {
+        this.translationService.setLanguage(browserLang);
+      } else {
+        this.translationService.setLanguage('en');
+      }
+    });
+  }
+
+  ngOnInit(): void {
+    this.detectDefaultLanguage();
+  }
 
   getCurrentLanguageCode(): string {
     return this.translationService.getCurrentLanguage().toUpperCase();

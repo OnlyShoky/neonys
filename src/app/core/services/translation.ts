@@ -10,7 +10,7 @@ interface Translations {
   providedIn: 'root'
 })
 export class TranslationService {
-  private currentLanguage = 'en';
+  private currentLanguage = 'fr';
   
   private translations: Translations = {
     en: {
