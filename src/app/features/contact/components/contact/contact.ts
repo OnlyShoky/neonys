@@ -28,32 +28,38 @@ export class ContactComponent {
     return this.translationService.getTranslation(key);
   }
 
-  async onSubmit(form: NgForm) {
+  private encodeFormData(data: any) {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
+  }
+
+  onSubmit(form: NgForm) {
+    if (!form.valid) return;
+
     this.loading = true;
     this.success = false;
     this.error = false;
 
-    try {
-      // Creamos un formData para enviar POST normal
-      const data = new FormData();
-      data.append('form-name', 'contactNetlify');
-      data.append('name', this.formData.name);
-      data.append('email', this.formData.email);
-      data.append('message', this.formData.message);
+    const payload = {
+      'form-name': 'contactNetlify', // debe coincidir con tu HTML
+      'bot-field': '',
+      ...this.formData
+    };
 
-      // Enviamos al mismo endpoint que Netlify detecta
-      await fetch('/', {
-        method: 'POST',
-        body: data,
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: this.encodeFormData(payload)
+    })
+      .then(() => {
+        this.success = true;
+        this.loading = false;
+        form.resetForm();
+      })
+      .catch(() => {
+        this.error = true;
+        this.loading = false;
       });
-
-      this.success = true;
-      form.resetForm();
-    } catch (err) {
-      console.error(err);
-      this.error = true;
-    } finally {
-      this.loading = false;
-    }
   }
 }

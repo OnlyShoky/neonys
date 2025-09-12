@@ -24,7 +24,6 @@
       </div>
 
       <div class="md:w-1/2 md:pl-8">
-        <!-- Enviamos el formulario con POST normal para Netlify -->
         <form name="contactNetlify" method="POST" netlify netlify-honeypot="bot-field"
           (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" class="space-y-4">
 
@@ -73,12 +72,9 @@
 
         </form>
       </div>
-
-
     </div>
   </div>
 </section>
-
 <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
   <div class="bg-primary-blue rounded-xl p-8 md:p-12">
     <form name="contactClean" method="POST" data-netlify="true" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
