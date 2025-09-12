@@ -14,17 +14,12 @@ interface ContactForm {
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './contact.html',
-  styleUrls: ['./contact.scss'] // nota: plural styleUrls
+  styleUrls: ['./contact.scss']
 })
 export class ContactComponent {
   private translationService = inject(TranslationService);
 
-  formData: ContactForm = {
-    name: '',
-    email: '',
-    message: ''
-  };
-
+  formData: ContactForm = { name: '', email: '', message: '' };
   loading = false;
   success = false;
   error = false;
@@ -33,38 +28,32 @@ export class ContactComponent {
     return this.translationService.getTranslation(key);
   }
 
-  async onSubmit(form: NgForm): Promise<void> {
-    if (!form.valid) return;
-
+  async onSubmit(form: NgForm) {
     this.loading = true;
     this.success = false;
     this.error = false;
 
     try {
-      const response = await fetch('/', {
+      // Creamos un formData para enviar POST normal
+      const data = new FormData();
+      data.append('form-name', 'contactNetlify');
+      data.append('name', this.formData.name);
+      data.append('email', this.formData.email);
+      data.append('message', this.formData.message);
+
+      // Enviamos al mismo endpoint que Netlify detecta
+      await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: this.encode({ 'form-name': 'contact', ...this.formData })
+        body: data,
       });
 
-      if (response.ok) {
-        this.success = true;
-        form.resetForm();
-        this.formData = { name: '', email: '', message: '' };
-      } else {
-        throw new Error('Network error');
-      }
+      this.success = true;
+      form.resetForm();
     } catch (err) {
       console.error(err);
       this.error = true;
     } finally {
       this.loading = false;
     }
-  }
-
-  private encode(data: { [key: string]: string }): string {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key] || ''))
-      .join('&');
   }
 }

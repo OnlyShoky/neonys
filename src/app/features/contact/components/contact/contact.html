@@ -24,11 +24,13 @@
       </div>
 
       <div class="md:w-1/2 md:pl-8">
-        <form name="contact" method="POST" netlify (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm"
-          class="space-y-4">
-
+        <!-- Enviamos el formulario con POST normal para Netlify -->
+        <form name="contactNetlify" method="POST" netlify netlify-honeypot="bot-field" (ngSubmit)="onSubmit(contactForm)"
+          #contactForm="ngForm" class="space-y-4">
+          
           <!-- Campo oculto obligatorio para Netlify -->
-          <input type="hidden" name="form-name" value="contact">
+          <input type="hidden" name="form-name" value="contactNetlify">
+          <input type="hidden" name="bot-field">
 
           <div>
             <label for="name" class="block text-sm font-medium mb-1 text-white">
@@ -62,21 +64,19 @@
             <i class="fas fa-paper-plane ml-2"></i>
           </button>
 
-          <p *ngIf="success; else noMessage" class="text-green-200 mt-2">
+          <p *ngIf="success" class="text-green-200 mt-2">
             ✅ {{ getTranslation('contact.form.success') }}
           </p>
-          <p *ngIf="error; else noMessage" class="text-red-200 mt-2">
+          <p *ngIf="error" class="text-red-200 mt-2">
             ❌ {{ getTranslation('contact.form.error') }}
           </p>
-
-          <ng-template #noMessage></ng-template>
-
 
         </form>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- Footer -->
 <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-border">
@@ -99,7 +99,7 @@
       </div>
     </div>
     <div class="mt-8 pt-8 border-t border-border-purple flex flex-col md:flex-row justify-between items-center">
-      <p class="text-primary-blue text-sm mb-4 md:mb-0">© 2023 Neonys. {{ getTranslation('footer.rights') }}</p>
+      <p class="text-primary-blue text-sm mb-4 md:mb-0">© 2025 Neonys. {{ getTranslation('footer.rights') }}</p>
       <div class="flex space-x-6">
         <a href="#" class="text-primary-blue hover:text-primary-purple text-sm transition">{{
           getTranslation('footer.privacy') }}</a>
