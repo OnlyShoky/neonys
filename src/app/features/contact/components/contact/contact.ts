@@ -34,32 +34,45 @@ export class ContactComponent {
       .join('&');
   }
 
+  private isValidEmail(email: string): boolean {
+    // Validación básica de email
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  }
+
   onSubmit(form: NgForm) {
-    if (!form.valid) return;
+    if (!form.valid || !this.isValidEmail(this.formData.email)) {
+      alert('Por favor rellena todos los campos correctamente y asegúrate de que el email sea válido.');
+      return;
+    }
 
     this.loading = true;
-    this.success = false;
-    this.error = false;
 
-    const payload = {
-      'form-name': 'contactNetlify', // debe coincidir con tu HTML
-      'bot-field': '',
-      ...this.formData
-    };
+    const body = this.encodeFormData({
+      'form-name': 'contactNetlify',
+      name: this.formData.name,
+      email: this.formData.email,
+      message: this.formData.message
+    });
 
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: this.encodeFormData(payload)
+      body
     })
       .then(() => {
-        this.success = true;
         this.loading = false;
+        this.success = true;
+        this.error = false;
+        alert('✅ Formulario enviado correctamente!');
         form.resetForm();
+        this.formData = { name: '', email: '', message: '' };
       })
       .catch(() => {
-        this.error = true;
         this.loading = false;
+        this.success = false;
+        this.error = true;
+        alert('❌ Hubo un error al enviar el formulario. Intenta de nuevo.');
       });
   }
 }
