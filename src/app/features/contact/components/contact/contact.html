@@ -3,7 +3,7 @@
     <div class="flex flex-col md:flex-row">
       <div class="md:w-1/2 mb-8 md:mb-0">
         <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">
-          <span>{{ getTranslation('contact.ready') }} </span> 
+          <span>{{ getTranslation('contact.ready') }} </span>
           <span>{{ getTranslation('contact.automate') }}</span>?
         </h2>
         <p class="text-xl mb-6 text-white">{{ getTranslation('contact.subtitle') }}</p>
@@ -14,7 +14,7 @@
           </div>
           <div class="flex items-center">
             <i class="fas fa-phone-alt text-white mr-4 text-xl"></i>
-            <span>+3 (0) 6 15 27 37 96</span>
+            <span>+33 (0) 6 15 27 37 96</span>
           </div>
           <div class="flex items-center">
             <i class="fas fa-map-marker-alt text-white mr-4 text-xl"></i>
@@ -23,48 +23,34 @@
         </div>
       </div>
       <div class="md:w-1/2 md:pl-8">
-        <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="space-y-4">
+        <form name="contact" method="POST" netlify class="space-y-4">
+          <!-- Campo oculto obligatorio para Netlify -->
+          <input type="hidden" name="form-name" value="contact">
+
           <div>
-            <label for="name" class="block text-sm font-medium mb-1 text-white">{{ getTranslation('contact.form.name') }}</label>
-            <input 
-              type="text" 
-              id="name" 
-              name="name"
-              [(ngModel)]="formData.name"
-              required
-              class="w-full px-4 py-3 bg-white/90 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-purple"
-            >
+            <label for="name" class="block text-sm font-medium mb-1 text-white">{{ getTranslation('contact.form.name')
+              }}</label>
+            <input type="text" id="name" name="name" [(ngModel)]="formData.name" required
+              class="w-full px-4 py-3 bg-white/90 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-purple">
           </div>
           <div>
-            <label for="email" class="block text-sm font-medium mb-1 text-white">{{ getTranslation('contact.form.email') }}</label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email"
-              [(ngModel)]="formData.email"
-              required
-              class="w-full px-4 py-3 bg-white/90 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-purple"
-            >
+            <label for="email" class="block text-sm font-medium mb-1 text-white">{{ getTranslation('contact.form.email')
+              }}</label>
+            <input type="email" id="email" name="email" [(ngModel)]="formData.email" required
+              class="w-full px-4 py-3 bg-white/90 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-purple">
           </div>
           <div>
-            <label for="message" class="block text-sm font-medium mb-1 text-white">{{ getTranslation('contact.form.message') }}</label>
-            <textarea 
-              id="message" 
-              name="message"
-              [(ngModel)]="formData.message"
-              required
-              rows="4" 
-              class="w-full px-4 py-3 bg-white/90 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-purple"
-            ></textarea>
+            <label for="message" class="block text-sm font-medium mb-1 text-white">{{
+              getTranslation('contact.form.message') }}</label>
+            <textarea id="message" name="message" [(ngModel)]="formData.message" required rows="4"
+              class="w-full px-4 py-3 bg-white/90 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-purple"></textarea>
           </div>
-          <button 
-            type="submit" 
-            [disabled]="!contactForm.form.valid"
-            class="w-full px-6 py-3 bg-white hover:bg-white/90 rounded-lg text-primary-blue font-bold transition disabled:opacity-50"
-          >
-            <span>{{ getTranslation('contact.form.submit') }}</span> 
+          <button type="submit"
+            class="w-full px-6 py-3 bg-white hover:bg-white/90 rounded-lg text-primary-blue font-bold transition">
+            <span>{{ getTranslation('contact.form.submit') }}</span>
             <i class="fas fa-paper-plane ml-2"></i>
           </button>
+
         </form>
       </div>
     </div>
@@ -94,11 +80,13 @@
     <div class="mt-8 pt-8 border-t border-border-purple flex flex-col md:flex-row justify-between items-center">
       <p class="text-primary-blue text-sm mb-4 md:mb-0">© 2023 Neonys. {{ getTranslation('footer.rights') }}</p>
       <div class="flex space-x-6">
-        <a href="#" class="text-primary-blue hover:text-primary-purple text-sm transition">{{ getTranslation('footer.privacy') }}</a>
-        <a href="#" class="text-primary-blue hover:text-primary-purple text-sm transition">{{ getTranslation('footer.terms') }}</a>
-        <a href="#" class="text-primary-blue hover:text-primary-purple text-sm transition">{{ getTranslation('footer.contact') }}</a>
+        <a href="#" class="text-primary-blue hover:text-primary-purple text-sm transition">{{
+          getTranslation('footer.privacy') }}</a>
+        <a href="#" class="text-primary-blue hover:text-primary-purple text-sm transition">{{
+          getTranslation('footer.terms') }}</a>
+        <a href="#" class="text-primary-blue hover:text-primary-purple text-sm transition">{{
+          getTranslation('footer.contact') }}</a>
       </div>
     </div>
   </div>
 </footer>
-
