@@ -22,34 +22,55 @@
           </div>
         </div>
       </div>
+
       <div class="md:w-1/2 md:pl-8">
-        <form name="contact" method="POST" netlify class="space-y-4">
+        <form name="contact" method="POST" netlify (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm"
+          class="space-y-4">
+
           <!-- Campo oculto obligatorio para Netlify -->
           <input type="hidden" name="form-name" value="contact">
 
           <div>
-            <label for="name" class="block text-sm font-medium mb-1 text-white">{{ getTranslation('contact.form.name')
-              }}</label>
+            <label for="name" class="block text-sm font-medium mb-1 text-white">
+              {{ getTranslation('contact.form.name') }}
+            </label>
             <input type="text" id="name" name="name" [(ngModel)]="formData.name" required
               class="w-full px-4 py-3 bg-white/90 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-purple">
           </div>
+
           <div>
-            <label for="email" class="block text-sm font-medium mb-1 text-white">{{ getTranslation('contact.form.email')
-              }}</label>
+            <label for="email" class="block text-sm font-medium mb-1 text-white">
+              {{ getTranslation('contact.form.email') }}
+            </label>
             <input type="email" id="email" name="email" [(ngModel)]="formData.email" required
               class="w-full px-4 py-3 bg-white/90 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-purple">
           </div>
+
           <div>
-            <label for="message" class="block text-sm font-medium mb-1 text-white">{{
-              getTranslation('contact.form.message') }}</label>
+            <label for="message" class="block text-sm font-medium mb-1 text-white">
+              {{ getTranslation('contact.form.message') }}
+            </label>
             <textarea id="message" name="message" [(ngModel)]="formData.message" required rows="4"
-              class="w-full px-4 py-3 bg-white/90 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-purple"></textarea>
+              class="w-full px-4 py-3 bg-white/90 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-purple">
+            </textarea>
           </div>
-          <button type="submit"
-            class="w-full px-6 py-3 bg-white hover:bg-white/90 rounded-lg text-primary-blue font-bold transition">
-            <span>{{ getTranslation('contact.form.submit') }}</span>
+
+          <button type="submit" [disabled]="!contactForm.form.valid || loading"
+            class="w-full px-6 py-3 bg-white hover:bg-white/90 rounded-lg text-primary-blue font-bold transition disabled:opacity-50">
+            <span *ngIf="!loading">{{ getTranslation('contact.form.submit') }}</span>
+            <span *ngIf="loading">{{ getTranslation('contact.form.sending') }}...</span>
             <i class="fas fa-paper-plane ml-2"></i>
           </button>
+
+          <p *ngIf="success; else noMessage" class="text-green-200 mt-2">
+            ✅ {{ getTranslation('contact.form.success') }}
+          </p>
+          <p *ngIf="error; else noMessage" class="text-red-200 mt-2">
+            ❌ {{ getTranslation('contact.form.error') }}
+          </p>
+
+          <ng-template #noMessage></ng-template>
+
 
         </form>
       </div>
