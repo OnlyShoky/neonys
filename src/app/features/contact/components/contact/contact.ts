@@ -35,14 +35,14 @@ export class ContactComponent {
   }
 
   private isValidEmail(email: string): boolean {
-    // Validación básica de email
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
   }
 
   onSubmit(form: NgForm) {
+    // Validación del formulario y del email
     if (!form.valid || !this.isValidEmail(this.formData.email)) {
-      alert('Por favor rellena todos los campos correctamente y asegúrate de que el email sea válido.');
+      alert(this.getTranslation('contact.form.error'));
       return;
     }
 
@@ -64,7 +64,7 @@ export class ContactComponent {
         this.loading = false;
         this.success = true;
         this.error = false;
-        alert('✅ Formulario enviado correctamente!');
+        alert(`✅ ${this.getTranslation('contact.form.success')}`);
         form.resetForm();
         this.formData = { name: '', email: '', message: '' };
       })
@@ -72,7 +72,7 @@ export class ContactComponent {
         this.loading = false;
         this.success = false;
         this.error = true;
-        alert('❌ Hubo un error al enviar el formulario. Intenta de nuevo.');
+        alert(`❌ ${this.getTranslation('contact.form.error')}`);
       });
   }
 }
