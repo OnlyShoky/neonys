@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { ChatWidgetComponent } from '../../../shared/components/chat-widget/chat-widget.component';
 
 @Component({
@@ -6,8 +6,9 @@ import { ChatWidgetComponent } from '../../../shared/components/chat-widget/chat
   standalone: true,
   imports: [ChatWidgetComponent],
   templateUrl: './demo-page.component.html',
-  styleUrl: './demo-page.component.scss'
+  styleUrls: ['./demo-page.component.scss']
 })
-export class DemoPageComponent {
+export class DemoPageComponent  {
+
 
 }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ChatWidgetComponent } from './shared/components/chat-widget/chat-widget.component';
 
 
 @Component({
@@ -8,7 +7,6 @@ import { ChatWidgetComponent } from './shared/components/chat-widget/chat-widget
   standalone: true,
   imports: [
     RouterOutlet,
-    ChatWidgetComponent
 
   ],
   templateUrl: './app.html',

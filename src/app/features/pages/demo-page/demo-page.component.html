@@ -1,4 +1,10 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peak Boxing Club - La Massana, Andorra</title>
     <style>
         /* Reset y estilos base */
         * {
@@ -7,29 +13,30 @@
             box-sizing: border-box;
             font-family: 'Montserrat', sans-serif;
         }
-        
+
         body {
             background-color: #000;
             color: #fff;
             line-height: 1.6;
         }
-        
+
         a {
             text-decoration: none;
-            color: #32CD32; /* Verde lima */
+            color: #32CD32;
+            /* Verde lima */
             transition: color 0.3s;
         }
-        
+
         a:hover {
             color: #28a428;
         }
-        
+
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .btn {
             display: inline-block;
             background-color: #32CD32;
@@ -42,40 +49,40 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        
+
         .btn:hover {
             background-color: #28a428;
             color: #000;
         }
-        
+
         .btn-outline {
             background-color: transparent;
             border: 2px solid #32CD32;
             color: #32CD32;
         }
-        
+
         .btn-outline:hover {
             background-color: #32CD32;
             color: #000;
         }
-        
+
         section {
             padding: 80px 0;
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 50px;
             position: relative;
         }
-        
+
         .section-title h2 {
             font-size: 2.5rem;
             text-transform: uppercase;
             margin-bottom: 15px;
             color: #32CD32;
         }
-        
+
         .section-title:after {
             content: '';
             display: block;
@@ -84,7 +91,7 @@
             background: #32CD32;
             margin: 15px auto;
         }
-        
+
         /* Header y Navegación */
         header {
             background-color: rgba(0, 0, 0, 0.9);
@@ -94,24 +101,24 @@
             padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
-        
+
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
         }
-        
+
         .logo h1 {
             font-size: 1.8rem;
             color: #32CD32;
             margin-left: 10px;
         }
-        
+
         .logo-img {
             width: 50px;
             height: 50px;
@@ -123,27 +130,27 @@
             font-weight: bold;
             color: #000;
         }
-        
+
         nav ul {
             display: flex;
             list-style: none;
         }
-        
+
         nav ul li {
             margin-left: 30px;
         }
-        
+
         nav ul li a {
             color: #fff;
             font-weight: 600;
             text-transform: uppercase;
             font-size: 0.9rem;
         }
-        
+
         nav ul li a:hover {
             color: #32CD32;
         }
-        
+
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -153,62 +160,62 @@
             text-align: center;
             padding-top: 80px;
         }
-        
+
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .hero-content h2 {
             font-size: 3.5rem;
             margin-bottom: 20px;
             text-transform: uppercase;
         }
-        
+
         .hero-content p {
             font-size: 1.2rem;
             margin-bottom: 30px;
         }
-        
+
         .hero-buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
         }
-        
+
         /* About Section */
         .about-content {
             display: flex;
             align-items: center;
             gap: 50px;
         }
-        
+
         .about-text {
             flex: 1;
         }
-        
+
         .about-image {
             flex: 1;
             border: 3px solid #32CD32;
             padding: 10px;
         }
-        
+
         .about-image img {
             width: 100%;
             display: block;
         }
-        
+
         /* Services Section */
         .services {
             background-color: #0a0a0a;
         }
-        
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
+
         .service-card {
             background-color: #111;
             padding: 30px;
@@ -216,117 +223,118 @@
             text-align: center;
             transition: transform 0.3s;
         }
-        
+
         .service-card:hover {
             transform: translateY(-10px);
         }
-        
+
         .service-icon {
             font-size: 2.5rem;
             color: #32CD32;
             margin-bottom: 20px;
         }
-        
+
         .service-card h3 {
             margin-bottom: 15px;
             font-size: 1.5rem;
         }
-        
+
         /* Schedule Section */
         .schedule-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 30px;
         }
-        
-        .schedule-table th, .schedule-table td {
+
+        .schedule-table th,
+        .schedule-table td {
             padding: 15px;
             text-align: center;
             border: 1px solid #333;
         }
-        
+
         .schedule-table th {
             background-color: #32CD32;
             color: #000;
             font-weight: 700;
         }
-        
+
         .schedule-table tr:nth-child(even) {
             background-color: #111;
         }
-        
+
         /* Trainers Section */
         .trainers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
-        
+
         .trainer-card {
             background-color: #111;
             border-radius: 5px;
             overflow: hidden;
         }
-        
+
         .trainer-image {
             height: 300px;
             overflow: hidden;
         }
-        
+
         .trainer-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s;
         }
-        
+
         .trainer-card:hover .trainer-image img {
             transform: scale(1.1);
         }
-        
+
         .trainer-info {
             padding: 20px;
             text-align: center;
         }
-        
+
         .trainer-info h3 {
             margin-bottom: 10px;
             color: #32CD32;
         }
-        
+
         .trainer-role {
             color: #aaa;
             font-style: italic;
             margin-bottom: 15px;
         }
-        
+
         /* Testimonials Section */
         .testimonials {
             background-color: #0a0a0a;
         }
-        
+
         .testimonials-container {
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .testimonial {
             background-color: #111;
             padding: 30px;
             border-radius: 5px;
             margin-bottom: 30px;
         }
-        
+
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
         }
-        
+
         .testimonial-author {
             display: flex;
             align-items: center;
         }
-        
+
         .testimonial-author img {
             width: 60px;
             height: 60px;
@@ -334,58 +342,60 @@
             margin-right: 15px;
             object-fit: cover;
         }
-        
+
         .author-info h4 {
             color: #32CD32;
         }
-        
+
         /* Contact Section */
         .contact-container {
             display: flex;
             gap: 50px;
         }
-        
-        .contact-info, .contact-form {
+
+        .contact-info,
+        .contact-form {
             flex: 1;
         }
-        
+
         .contact-info h3 {
             margin-bottom: 20px;
             color: #32CD32;
         }
-        
+
         .contact-details {
             margin-bottom: 30px;
         }
-        
+
         .contact-details p {
             margin-bottom: 10px;
             display: flex;
             align-items: center;
         }
-        
+
         .contact-details i {
             margin-right: 10px;
             color: #32CD32;
         }
-        
+
         .map iframe {
             width: 100%;
             height: 300px;
             border: none;
             border-radius: 5px;
         }
-        
+
         .form-group {
             margin-bottom: 20px;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 5px;
         }
-        
-        .form-group input, .form-group textarea {
+
+        .form-group input,
+        .form-group textarea {
             width: 100%;
             padding: 12px;
             background-color: #111;
@@ -393,44 +403,45 @@
             color: #fff;
             border-radius: 4px;
         }
-        
+
         .form-group textarea {
             height: 150px;
         }
-        
+
         /* Footer */
         footer {
             background-color: #0a0a0a;
             padding: 50px 0 20px;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-bottom: 30px;
         }
-        
+
         .footer-column h3 {
             color: #32CD32;
             margin-bottom: 20px;
             font-size: 1.2rem;
         }
-        
-        .footer-column p, .footer-column li {
+
+        .footer-column p,
+        .footer-column li {
             margin-bottom: 10px;
             color: #aaa;
         }
-        
+
         .footer-column ul {
             list-style: none;
         }
-        
+
         .social-links {
             display: flex;
             gap: 15px;
         }
-        
+
         .social-links a {
             display: inline-block;
             width: 40px;
@@ -441,47 +452,53 @@
             line-height: 40px;
             transition: background-color 0.3s;
         }
-        
+
         .social-links a:hover {
             background-color: #32CD32;
         }
-        
+
         .copyright {
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid #333;
             color: #aaa;
         }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
             }
-            
+
             nav ul {
                 margin-top: 20px;
             }
-            
+
             nav ul li {
                 margin: 0 10px;
             }
-            
+
             .hero-content h2 {
                 font-size: 2.5rem;
             }
-            
-            .about-content, .contact-container {
+
+            .about-content,
+            .contact-container {
                 flex-direction: column;
             }
-            
+
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
             }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@n8n/chat@latest/dist/style.css">
+</head>
 
+<body>
     <!-- Header Component -->
     <header>
         <div class="container header-container">
@@ -508,13 +525,15 @@
         <section id="inicio" class="hero">
             <div class="container hero-content">
                 <h2>Transforma tu cuerpo y mente</h2>
-                <p>Únete al mejor club de boxeo de Andorra y descubre tu potencial con entrenadores profesionales en un ambiente único en los Pirineos.</p>
+                <p>Únete al mejor club de boxeo de Andorra y descubre tu potencial con entrenadores profesionales en un
+                    ambiente único en los Pirineos.</p>
                 <div class="hero-buttons">
                     <a href="#contacto" class="btn">Prueba una clase gratis</a>
                     <a href="#servicios" class="btn btn-outline">Nuestros servicios</a>
                 </div>
             </div>
         </section>
+
 
         <!-- About Section -->
         <section id="nosotros" class="about">
@@ -526,13 +545,20 @@
                 <div class="about-content">
                     <div class="about-text">
                         <h3>Peak Boxing Club: Excelencia en los Pirineos</h3>
-                        <p>Fundado en 2010, Peak Boxing Club se ha consolidado como el referente del boxeo en Andorra. Nuestras instalaciones de primer nivel y nuestro equipo de entrenadores profesionales te ayudarán a alcanzar tus objetivos, ya sea para competir o para mantenerte en forma.</p>
-                        <p>Ubicados en el corazón de La Massana, aprovechamos el aire puro de montaña y el entorno natural único para ofrecer una experiencia de entrenamiento incomparable. Nuestra filosofía se basa en la disciplina, el respeto y la superación personal.</p>
-                        <p>Ofrecemos programas adaptados a todos los niveles, desde principiantes hasta boxeadores competitivos. Ven a conocernos y descubre por qué somos el club de boxeo preferido de Andorra.</p>
+                        <p>Fundado en 2010, Peak Boxing Club se ha consolidado como el referente del boxeo en Andorra.
+                            Nuestras instalaciones de primer nivel y nuestro equipo de entrenadores profesionales te
+                            ayudarán a alcanzar tus objetivos, ya sea para competir o para mantenerte en forma.</p>
+                        <p>Ubicados en el corazón de La Massana, aprovechamos el aire puro de montaña y el entorno
+                            natural único para ofrecer una experiencia de entrenamiento incomparable. Nuestra filosofía
+                            se basa en la disciplina, el respeto y la superación personal.</p>
+                        <p>Ofrecemos programas adaptados a todos los niveles, desde principiantes hasta boxeadores
+                            competitivos. Ven a conocernos y descubre por qué somos el club de boxeo preferido de
+                            Andorra.</p>
                         <a href="#contacto" class="btn">Visítanos hoy</a>
                     </div>
                     <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Interior del Peak Boxing Club">
+                        <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Interior del Peak Boxing Club">
                     </div>
                 </div>
             </div>
@@ -551,42 +577,48 @@
                             <i class="fas fa-fist-raised"></i>
                         </div>
                         <h3>Boxeo Recreativo</h3>
-                        <p>Programa diseñado para quienes buscan ponerse en forma mientras aprenden los fundamentos del boxeo. Mejora tu condición física, coordinación y confianza.</p>
+                        <p>Programa diseñado para quienes buscan ponerse en forma mientras aprenden los fundamentos del
+                            boxeo. Mejora tu condición física, coordinación y confianza.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-trophy"></i>
                         </div>
                         <h3>Boxeo Competitivo</h3>
-                        <p>Para aquellos que buscan competir. Entrenamiento intensivo con preparación física avanzada, técnica depurada y estrategia de combate.</p>
+                        <p>Para aquellos que buscan competir. Entrenamiento intensivo con preparación física avanzada,
+                            técnica depurada y estrategia de combate.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-dumbbell"></i>
                         </div>
                         <h3>Entrenamiento Funcional</h3>
-                        <p>Sesiones de alta intensidad basadas en movimientos de boxeo para mejorar la fuerza, resistencia y agilidad sin necesidad de sparring.</p>
+                        <p>Sesiones de alta intensidad basadas en movimientos de boxeo para mejorar la fuerza,
+                            resistencia y agilidad sin necesidad de sparring.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-child"></i>
                         </div>
                         <h3>Boxeo Junior</h3>
-                        <p>Programa especializado para jóvenes de 12-17 años que combina disciplina, condición física y valores deportivos en un ambiente seguro.</p>
+                        <p>Programa especializado para jóvenes de 12-17 años que combina disciplina, condición física y
+                            valores deportivos en un ambiente seguro.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-user-friends"></i>
                         </div>
                         <h3>Entrenamiento Personal</h3>
-                        <p>Atención individualizada con un entrenador dedicado exclusivamente a tus objetivos y necesidades específicas.</p>
+                        <p>Atención individualizada con un entrenador dedicado exclusivamente a tus objetivos y
+                            necesidades específicas.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-heart"></i>
                         </div>
                         <h3>Boxeo para Mujeres</h3>
-                        <p>Clases exclusivas para mujeres que quieren aprender defensa personal, mejorar su condición física y ganar confianza.</p>
+                        <p>Clases exclusivas para mujeres que quieren aprender defensa personal, mejorar su condición
+                            física y ganar confianza.</p>
                     </div>
                 </div>
             </div>
@@ -681,42 +713,50 @@
                 <div class="trainers-grid">
                     <div class="trainer-card">
                         <div class="trainer-image">
-                            <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Marc García">
+                            <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                                alt="Marc García">
                         </div>
                         <div class="trainer-info">
                             <h3>Marc García</h3>
                             <div class="trainer-role">Director Técnico</div>
-                            <p>Ex campeón de España de pesos medios con más de 15 años de experiencia en entrenamiento de alto rendimiento.</p>
+                            <p>Ex campeón de España de pesos medios con más de 15 años de experiencia en entrenamiento
+                                de alto rendimiento.</p>
                         </div>
                     </div>
                     <div class="trainer-card">
                         <div class="trainer-image">
-                            <img src="https://images.unsplash.com/photo-1598974357801-cbca100e65d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Elena Torres">
+                            <img src="https://images.unsplash.com/photo-1598974357801-cbca100e65d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                                alt="Elena Torres">
                         </div>
                         <div class="trainer-info">
                             <h3>Elena Torres</h3>
                             <div class="trainer-role">Entrenadora de Boxeo Femenino</div>
-                            <p>Campeona regional de Cataluña en 2016-2018. Especializada en defensa personal y boxeo fitness.</p>
+                            <p>Campeona regional de Cataluña en 2016-2018. Especializada en defensa personal y boxeo
+                                fitness.</p>
                         </div>
                     </div>
                     <div class="trainer-card">
                         <div class="trainer-image">
-                            <img src="https://images.unsplash.com/photo-1549060279-7e168fce7090?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Xavier Soler">
+                            <img src="https://images.unsplash.com/photo-1549060279-7e168fce7090?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                                alt="Xavier Soler">
                         </div>
                         <div class="trainer-info">
                             <h3>Xavier Soler</h3>
                             <div class="trainer-role">Preparador Físico</div>
-                            <p>Licenciado en Ciencias de la Actividad Física y el Deporte. Especialista en acondicionamiento para combate.</p>
+                            <p>Licenciado en Ciencias de la Actividad Física y el Deporte. Especialista en
+                                acondicionamiento para combate.</p>
                         </div>
                     </div>
                     <div class="trainer-card">
                         <div class="trainer-image">
-                            <img src="https://images.unsplash.com/photo-1519859660545-0dcaa1a8260a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Sofia Martínez">
+                            <img src="https://images.unsplash.com/photo-1519859660545-0dcaa1a8260a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                                alt="Sofia Martínez">
                         </div>
                         <div class="trainer-info">
                             <h3>Sofia Martínez</h3>
                             <div class="trainer-role">Entrenadora de Boxeo Junior</div>
-                            <p>Experta en pedagogía deportiva y desarrollo de habilidades motoras en jóvenes deportistas.</p>
+                            <p>Experta en pedagogía deportiva y desarrollo de habilidades motoras en jóvenes
+                                deportistas.</p>
                         </div>
                     </div>
                 </div>
@@ -732,9 +772,12 @@
                 </div>
                 <div class="testimonials-container">
                     <div class="testimonial">
-                        <p class="testimonial-text">"Llevo entrenando en Peak Boxing Club desde hace dos años y ha transformado completamente mi vida. No solo he perdido 15 kilos, sino que he ganado una confianza que nunca pensé posible."</p>
+                        <p class="testimonial-text">"Llevo entrenando en Peak Boxing Club desde hace dos años y ha
+                            transformado completamente mi vida. No solo he perdido 15 kilos, sino que he ganado una
+                            confianza que nunca pensé posible."</p>
                         <div class="testimonial-author">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Carlos López">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                                alt="Carlos López">
                             <div class="author-info">
                                 <h4>Carlos López</h4>
                                 <p>Miembro desde 2020</p>
@@ -742,9 +785,12 @@
                         </div>
                     </div>
                     <div class="testimonial">
-                        <p class="testimonial-text">"Como mujer, siempre me había dado miedo practicar artes marciales, pero el ambiente en Peak Boxing Club es increíblemente acogedor. Las entrenadoras son fantásticas y he aprendido mucho sobre defensa personal."</p>
+                        <p class="testimonial-text">"Como mujer, siempre me había dado miedo practicar artes marciales,
+                            pero el ambiente en Peak Boxing Club es increíblemente acogedor. Las entrenadoras son
+                            fantásticas y he aprendido mucho sobre defensa personal."</p>
                         <div class="testimonial-author">
-                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Laura Mendiola">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                                alt="Laura Mendiola">
                             <div class="author-info">
                                 <h4>Laura Mendiola</h4>
                                 <p>Miembro desde 2021</p>
@@ -752,9 +798,12 @@
                         </div>
                     </div>
                     <div class="testimonial">
-                        <p class="testimonial-text">"Inscribí a mi hijo de 14 años en el programa junior y ha sido una de las mejores decisiones. No solo ha mejorado físicamente, sino que ha desarrollado disciplina y respeto por los demás."</p>
+                        <p class="testimonial-text">"Inscribí a mi hijo de 14 años en el programa junior y ha sido una
+                            de las mejores decisiones. No solo ha mejorado físicamente, sino que ha desarrollado
+                            disciplina y respeto por los demás."</p>
                         <div class="testimonial-author">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Marta Rodríguez">
+                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                                alt="Marta Rodríguez">
                             <div class="author-info">
                                 <h4>Marta Rodríguez</h4>
                                 <p>Madre de miembro junior</p>
@@ -764,6 +813,7 @@
                 </div>
             </div>
         </section>
+
 
 
 
@@ -781,10 +831,13 @@
                             <p><i class="fas fa-map-marker-alt"></i> Av. Sant Antoni 42, La Massana, Andorra</p>
                             <p><i class="fas fa-phone"></i> +376 123 456</p>
                             <p><i class="fas fa-envelope"></i> info@peakboxingclub.com</p>
-                            <p><i class="fas fa-clock"></i> Lunes a Viernes: 7:00 - 22:00<br>Sábados: 10:00 - 14:00<br>Domingos: Cerrado</p>
+                            <p><i class="fas fa-clock"></i> Lunes a Viernes: 7:00 - 22:00<br>Sábados: 10:00 -
+                                14:00<br>Domingos: Cerrado</p>
                         </div>
                         <div class="map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11599.45089997041!2d1.514133!3d42.544999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a5d36ed6ac3021%3A0x9ef5d727cfc0b34!2sLa%20Massana!5e0!3m2!1ses!2ses!4v1645543672938!5m2!1ses!2ses" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11599.45089997041!2d1.514133!3d42.544999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a5d36ed6ac3021%3A0x9ef5d727cfc0b34!2sLa%20Massana!5e0!3m2!1ses!2ses!4v1645543672938!5m2!1ses!2ses"
+                                allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
                     <div class="contact-form">
@@ -812,6 +865,9 @@
                 </div>
             </div>
         </section>
+
+        <app-chat-widget></app-chat-widget>
+
     </main>
 
     <!-- Footer Component -->
@@ -820,7 +876,8 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>Peak Boxing Club</h3>
-                    <p>El mejor club de boxeo de Andorra, ubicado en La Massana. Ofrecemos programas para todos los niveles en instalaciones de primer nivel.</p>
+                    <p>El mejor club de boxeo de Andorra, ubicado en La Massana. Ofrecemos programas para todos los
+                        niveles en instalaciones de primer nivel.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -867,18 +924,18 @@
         </div>
     </footer>
 
-    
+
     <script>
         // Smooth scrolling para los enlaces de navegación
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
+                if (targetId === '#') return;
+
                 const targetElement = document.querySelector(targetId);
-                if(targetElement) {
+                if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
@@ -888,11 +945,12 @@
         });
 
         // Simulación de envío de formulario
-        document.getElementById('infoForm').addEventListener('submit', function(e) {
+        document.getElementById('infoForm').addEventListener('submit', function (e) {
             e.preventDefault();
             alert('¡Gracias por tu mensaje! Te contactaremos pronto. (Esta es una simulación, el formulario no funciona realmente)');
             this.reset();
         });
     </script>
+</body>
 
-
+</html>
