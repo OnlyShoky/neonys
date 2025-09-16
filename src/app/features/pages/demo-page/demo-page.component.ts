@@ -10,5 +10,4 @@ import { ChatWidgetComponent } from '../../../shared/components/chat-widget/chat
 })
 export class DemoPageComponent  {
 
-
 }
