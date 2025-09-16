@@ -1,0 +1,17 @@
+<!-- Botón flotante -->
+<div class="chat-widget">
+  <button (click)="toggleChat()" class="chat-icon">
+    💬
+  </button>
+
+  <!-- Ventana de chat -->
+  <div class="chat-window" *ngIf="chatOpen">
+    <iframe
+      [src]="chatUrl"
+      frameborder="0"
+      width="350"
+      height="500"
+      allow="microphone; camera"
+    ></iframe>
+  </div>
+</div>
