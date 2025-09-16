@@ -16,6 +16,7 @@ export class ChatWidgetComponent implements OnInit {
   ngOnInit(): void {
     // Detectar idioma del navegador
     const userLang = navigator.language.startsWith('es') ? 'es' : 'en';
+    console.log("User language:", userLang);
     const chatUrl = this.ngrok + this.n8nChatUrl;
 
     console.log("Chat url:", chatUrl);
