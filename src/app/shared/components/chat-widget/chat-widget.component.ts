@@ -9,7 +9,8 @@ import { createChat } from '@n8n/chat';
   standalone: true
 })
 export class ChatWidgetComponent implements OnInit {
-  private ngrok = 'https://f703a62dc562.ngrok-free.app/';
+  // private ngrok = 'https://f703a62dc562.ngrok-free.app/'; ngrok http 5678
+  private ngrok = 'https://14f9f566570a.ngrok-free.app/';
   private n8nChatUrl = 'webhook/bdfaf162-1bbe-46b4-8033-aace37e2eda8/chat';
 
   ngOnInit(): void {
