@@ -5,6 +5,7 @@ import { AboutComponent } from '../../about/components/about/about';
 import { AgentsComponent } from '../../agents/components/agents/agents';
 import { HowItWorksComponent } from '../../how-it-works/components/how-it-works/how-it-works';
 import { ContactComponent } from '../../contact/components/contact/contact';
+import { FooterComponent } from '../../footer/footer.component';
 
 @Component({
   selector: 'app-main-layout',
@@ -16,8 +17,9 @@ import { ContactComponent } from '../../contact/components/contact/contact';
     AgentsComponent,
     HowItWorksComponent,
     ContactComponent,
-
-  ],
+    FooterComponent
+    
+],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss'
 })

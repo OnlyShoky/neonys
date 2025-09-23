@@ -1,0 +1,35 @@
+:host {
+  display: block;
+}
+
+.prose {
+  h2 {
+    margin-bottom: 1rem;
+  }
+  
+  ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+  
+  strong {
+    color: #ff7800;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .prose {
+    h2 {
+      font-size: 1.5rem;
+    }
+    
+    ul {
+      padding-left: 1rem;
+    }
+  }
+}
