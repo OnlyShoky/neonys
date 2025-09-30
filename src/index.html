@@ -3,23 +3,83 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Neonys | Hero Agents for the Future</title>
+  <title>Neonys | Automation Solutions for the Future</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="assets/LogoWhiteBG.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/LogoWhiteBG.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Neonys | Automation Solutions for the Future">
+  <meta name="description" content="Neonys helps businesses automate processes with innovative solutions. Discover our automation services to boost efficiency and prepare your company for the future.">
+  <meta name="keywords" content="Neonys, automation, business automation, AI automation, process optimization, digital transformation, industry 4.0">
+  <meta name="author" content="Neonys">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://neonys.fr/">
+  <meta property="og:title" content="Neonys | Automation Solutions for the Future">
+  <meta property="og:description" content="We sell automation solutions to help your business grow and thrive in the digital era.">
+  <meta property="og:image" content="https://neonys.fr/assets/LogoWhiteBG.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://neonys.fr/">
+  <meta property="twitter:title" content="Neonys | Automation Solutions for the Future">
+  <meta property="twitter:description" content="Neonys provides automation services to improve business efficiency.">
+  <meta property="twitter:image" content="https://neonys.fr/assets/LogoWhiteBG.png">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://neonys.fr/">
+
+  <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+  <!-- Swiper (carousel/slider) -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js" defer></script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3CDP122HC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-S3CDP122HC');
+  </script>
+
+  <!-- Structured Data (JSON-LD for Business) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Neonys",
+      "url": "https://neonys.fr",
+      "logo": "https://neonys.fr/assets/LogoWhiteBG.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/neonys",
+        "https://twitter.com/neonys"
+      ],
+      "description": "Neonys helps businesses automate processes with innovative solutions.",
+      "foundingDate": "2025",
+      "founder": {
+        "@type": "Person",
+        "name": "Mohamed El Mourabit"
+      }
+    }
+  </script>
 </head>
 
 <body>
   <app-root></app-root>
+
+  <!-- Hidden Netlify form for static hosting -->
   <form name="contactNetlify" data-netlify="true" hidden>
     <input type="text" name="name" />
     <input type="email" name="email" />
     <textarea name="message"></textarea>
     <input type="hidden" name="form-name" value="contactNetlify" />
   </form>
-
 </body>
 
 </html>
