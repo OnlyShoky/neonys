@@ -76,6 +76,11 @@ export class TranslationService {
           subtitle: "Social Scheduler",
           desc: "Publishes social media posts from your Notion content calendar to all platforms with optimal timing and automatic hashtag generation."
         },
+        pixaro: {
+          title: "Image Generation Agent",
+          subtitle: "Visual Crafter",
+          desc: "Creates and edits stunning images from text prompts or existing visuals, enhances resolution, adjusts styles, and generates assets for your posts and projects."
+        },
         cta: "Get this Agent",
         customText: "Don't see exactly what you need? We build custom Hero Agents too!",
         customCta: "Request Custom Agent"
@@ -394,6 +399,11 @@ export class TranslationService {
           title: "Publicador de Redes Sociales",
           subtitle: "Programador Social",
           desc: "Publica posts desde tu calendario de contenido en Notion a todas las plataformas con el mejor timing y generación automática de hashtags."
+        },
+        pixaro: {
+          title: "Agente de Generación de Imágenes",
+          subtitle: "Creador Visual",
+          desc: "Crea y edita imágenes impresionantes a partir de descripciones de texto o de visuales existentes, mejora la resolución, ajusta los estilos y genera recursos para tus publicaciones y proyectos."
         },
         cta: "Adquirir este Agente",
         customText: "¿No ves exactamente lo que necesitas? ¡También creamos Agentes Hero personalizados!",
@@ -714,6 +724,11 @@ export class TranslationService {
           subtitle: "Planificateur Social",
           desc: "Publie des posts depuis votre calendrier de contenu Notion vers toutes les plateformes avec un timing optimal et génération automatique de hashtags."
         },
+        pixaro: {
+  title: "Agent de Génération d’Images",
+  subtitle: "Créateur Visuel",
+  desc: "Crée et modifie des images époustouflantes à partir de textes ou de visuels existants, améliore la résolution, ajuste les styles et génère des ressources pour tes publications et projets."
+},
         cta: "Obtenez cet Agent",
         customText: "Vous ne trouvez pas exactement ce dont vous avez besoin ? Nous créons aussi des Agents Héros personnalisés !",
         customCta: "Demander un Agent Personnalisé"

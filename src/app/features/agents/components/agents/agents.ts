@@ -50,6 +50,17 @@ export class AgentsComponent {
       workflow: 'Pipedrive → Invoice Ninja → Email'
     },
     {
+      name: 'Pixaro',
+      titleKey: 'agents.pixaro.title',
+      subtitleKey: 'agents.pixaro.subtitle',
+      descKey: 'agents.pixaro.desc',
+      icon: 'fa-image',
+      color: '#2bc5ce',
+      hoverColor: '#2bc5ce',
+      image: '/assets/Pixaro.png',
+      workflow: 'Prompt → Generate → Edit → Export'
+    },
+    {
       name: 'Postari',
       titleKey: 'agents.postari.title',
       subtitleKey: 'agents.postari.subtitle',
